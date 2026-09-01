@@ -1,0 +1,15 @@
+WILLPOWER — NEW CONTENT TEMPLATE
+==================================
+Fill this out and paste it into Claude. Everything else gets pulled from the transcript.
+
+SERIES: [Wellness House / Catalyst / Lounge / etc.]
+DATE: [MM/DD/YYYY]
+SESSION TYPE: [Panel / Keynote / Fireside Chat]
+EMBED URL: [YouTube, Google Drive, Vimeo, etc.]
+
+TRANSCRIPT:
+[Paste the full transcript here. Timestamped is fine. Raw is fine. Claude will do the rest.]
+
+--- IF NO TRANSCRIPT, ADD NOTES INSTEAD ---
+STORY / NOTES:
+[Bullet points, key moments, quotes, anything you remember or have written down.]
