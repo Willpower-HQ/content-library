@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building From Scratch — Willpower</title>
+  <link rel="stylesheet" href="https://starlit-crostata-9f186f.netlify.app/assets/subpage.css" />
+  <style>
+    :root { --accent: #7baad4; --accent-light: rgba(123,170,212,0.10); }
+    body { background: var(--color-bg); }
+    .article-back { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin: 32px 0 0 0; }
+    .article-back:hover { opacity: .7; }
+    .article-hero { padding: 48px 0 0; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 0; }
+    .article-series-tag { display: inline-block; background: var(--accent-light); color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 20px; }
+    .article-hero h1 { font-size: clamp(28px, 4vw, 52px); line-height: 1.1; font-weight: 800; margin: 0 0 16px; max-width: 800px; color: var(--white, #f0f0f0); }
+    .article-hero .deck { font-size: 18px; color: var(--muted, #888); line-height: 1.6; max-width: 680px; margin: 0 0 40px; }
+    .metrics-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px; background: rgba(255,255,255,.06); border-top: 1px solid rgba(255,255,255,.06); border-bottom: 3px solid var(--accent); margin-bottom: 48px; }
+    .metric { background: var(--card, #13141a); padding: 28px 24px; }
+    .metric-num { font-size: 36px; font-weight: 800; line-height: 1; color: var(--accent); margin-bottom: 6px; }
+    .metric-label { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted, #888); }
+    .article-layout { display: grid; grid-template-columns: 1fr 360px; gap: 60px; align-items: start; padding-bottom: 80px; }
+    @media (max-width: 860px) { .article-layout { grid-template-columns: 1fr; } .article-sticky { position: static !important; } }
+    .article-body h2 { font-size: 22px; font-weight: 800; margin: 48px 0 16px; letter-spacing: -.01em; color: var(--white, #f0f0f0); }
+    .article-body p { font-size: 16px; line-height: 1.75; color: var(--muted, #aaa); margin: 0 0 20px; }
+    .pull-quote { border-left: 4px solid var(--accent); padding: 16px 24px; margin: 32px 0; background: var(--accent-light); }
+    .pull-quote p { font-size: 18px; font-weight: 600; font-style: italic; color: var(--white, #eee); margin: 0 0 8px; }
+    .pull-quote cite { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .article-sticky { position: sticky; top: 24px; }
+    .video-wrap { aspect-ratio: 16/9; background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.4); margin-bottom: 40px; }
+    .video-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .speaker-list { margin-top: 28px; padding: 20px 24px; border: 1px solid rgba(255,255,255,.1); border-radius: 10px; }
+    .speaker-list h4 { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted, #888); margin: 0 0 14px; }
+    .speaker-item { font-size: 14px; line-height: 1.4; margin-bottom: 12px; color: var(--muted, #aaa); }
+    .speaker-item strong { display: block; font-weight: 700; color: var(--white, #eee); }
+    .takeaway-list { list-style: none; padding: 0; margin: 0; }
+    .takeaway-list li { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: 15px; line-height: 1.5; color: var(--muted, #aaa); display: flex; gap: 12px; }
+    .takeaway-list li:last-child { border-bottom: none; }
+    .takeaway-list li::before { content: ""; flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--accent); display: block; margin-top: 2px; }
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../grid-version.html" class="article-back">&#8592; Back to Media</a>
+
+    <div class="article-hero">
+      <span class="article-series-tag">The Wellness Lounge · May 20, 2026</span>
+      <h1>Becca McCarthy Is 8 Months In and On Track for $100 Million. The First System She Built Was Distribution.</h1>
+      <p class="deck">Leala Francis (AG1), Becca McCarthy (Evolve), and David Baker (Beekman 1802) on why the product has to work before any retention strategy matters, what it means to know your customer well enough to buy them a birthday present, and why you can only buy what you already know how to make.</p>
+    </div>
+
+    <div class="metrics-strip">
+      <div class="metric"><div class="metric-num">$100M</div><div class="metric-label">Evolve's projected first-year run rate</div></div>
+      <div class="metric"><div class="metric-num">40%</div><div class="metric-label">Evolve's month-over-month growth</div></div>
+      <div class="metric"><div class="metric-num">$500M+</div><div class="metric-label">AG1 annual revenue, 14 years in</div></div>
+      <div class="metric"><div class="metric-num">#2</div><div class="metric-label">Beekman's Amazon channel rank, built in 2.5 years</div></div>
+    </div>
+
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/YlzN2CLT8I8"
+        title="Wellness House NYC 2026 — Building From Scratch"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="article-layout">
+      <div class="article-body">
+
+        <h2>The first system is distribution, not product</h2>
+        <p>Becca McCarthy has done zero-to-one twelve times. She has taken $5,000 checks and IPO'd companies. She has had the wire hit and she has had to lay off 200 people in 24 hours. Eight months into Evolve — the world's first oral GLP-1 receptor agonist — she is on track for nearly $100 million in year one, growing 40% month over month.</p>
+        <p>The first thing she built was not the product. It was distribution.</p>
+        <p>"Know your distribution before anything else. Know the plan. Is it retail? DTC? How are you getting in front of that customer?" Becca had the distribution strategy locked before the product was done being made. She has done it the other way: build the product, assume people will be as obsessed with it as you are, wait. It does not work. "You have to fish where the fish are."</p>
+
+        <h2>AG1's segmentation was one segment. Leala fixed it.</h2>
+        <p>When Leala Francis joined AG1 as SVP of Consumer Product and CX, she asked one question on day one: let me see your segmentation.</p>
+        <p>It was one segment. Named "health and wellness." Built on attitudes.</p>
+        <p>"An attitude towards health and wellness doesn't actually change that much. And you can't really measure it." A real segmentation is built on needs, beliefs, behaviors, AND attitudes. What she inherited was useless. So she built one from scratch.</p>
+        <p>What she built: every person at AG1 could now buy their customer a birthday present and get it right on the first try. That is how well they know them. The drivers, the habits, the fears, the wrecking-ball moment that made someone decide to start taking care of their health. "No one bought AG1 saying 'I want to sign up to AG1.' The root cause is: I want to feel empowered to take ownership of my own health."</p>
+        <p>That depth of knowledge is what powers everything downstream. The growth team gets it in story form. "What's on Rebecca's mind right now?" The CX team uses it to know who needs education versus who needs support. The innovation team uses it to know what to build next.</p>
+
+        <div class="pull-quote">
+          <p>"Everyone in my business could buy our customer a birthday present and get it right first time. That's how well we know our customer."</p>
+          <cite>Leala Francis, AG1</cite>
+        </div>
+
+        <h2>David built TikTok Shop himself on a weekend</h2>
+        <p>David Baker joined Beekman 1802 as Chief Digital Officer after a private equity acquisition. First six to nine months: no sleep, doing everything at once — rebuilding the site, the tech stack, the SMS infrastructure, the CX team, all of it.</p>
+        <p>Then Amazon. He brought it in-house and grew it from a reseller operation doing roughly $100,000 a year to Beekman's number two channel as a business. Two and a half years.</p>
+        <p>Then TikTok Shop appeared in 2023. David did not forward the email to his team. He spent a weekend building the pages himself, going through the passport verification process, learning the platform from the inside. Today, when his team gets stuck on TikTok Shop, they come to him. "That's training money can't buy."</p>
+        <p>The principle: you are a player AND a coach. If you have never been in the weeds on something, you cannot manage it, hire for it, or buy it intelligently. "You can only buy what you know how to make."</p>
+
+        <h2>Retention is one sentence: make the product work</h2>
+        <p>Becca's retention strategy is the most annoying thing she says, because it is the only true thing.</p>
+        <p>"Make the product do what it says it's going to do. Period. And then retention is small problems."</p>
+        <p>No CX team saves a bad product. No loyalty program fixes something that does not work. Build the product until it works. Everything else is a rounding error.</p>
+        <p>Leala's version is longer but arrives at the same place. The speed between delivery and first sip is the moment of truth. You should never have to ask where your order is. Day one hands off to her. Day four after a new product purchase, a human reaches out — not an AI — asking what you thought. Cat Cole, AG1's CEO, reads every customer email. The product is the service and the service is the product. They are not separable.</p>
+
+        <div class="pull-quote">
+          <p>"Never pass a good product with bad service. Your product IS your service and your product. It must be, at all times, top of our game."</p>
+          <cite>Leala Francis, AG1</cite>
+        </div>
+
+        <h2>5,000 advent calendars, 100 complaints, 800 silent dissenters</h2>
+        <p>Beekman 1802 sent an advent calendar to their most loyal customers for early access at a special price. Sales slowed. They added a free ornament to boost the campaign. Nobody thought through what that meant for the people who already bought.</p>
+        <p>About 100 customers reached out. David's estimate: another 800 who would not complain to Beekman but would complain everywhere else. So they did not fix it for the 100 who spoke up. They sent the ornament to all 5,000.</p>
+        <p>Then they also sent a bouquet of their floral scent as a forgiveness gift — getting product into the hands of people who had never tried it, while running down excess inventory at the same time. "Do better than best." It is not a policy. It is a principle. When something goes wrong, you do not just fix it. You do more than fix it.</p>
+        <p>The word Beekman uses is not customers. It is neighbors. "We believe we built this brand neighbor by neighbor by neighbor."</p>
+
+        <h2>The pasta analogy for build versus buy</h2>
+        <p>When you have 90 days and limited resources, the question is always: build, buy, or kill?</p>
+        <p>David's framework: pasta. You can make it from scratch at home — five hours, worn-out arms. You can buy it from the Nonna at the farmer's market. You can get Whole Foods fresh pasta. Or Kroger. All four are on a spectrum. The right choice depends on what you are good at, what you can maintain, and what the longer-term cost of ownership looks like.</p>
+        <p>"I now know what to look for when I'm looking for really good pasta because I've made it from scratch." That is the only reason he can evaluate vendors and AI tools without being conned. There are bad actors everywhere. The only protection is knowing what you are talking about. "If you haven't taken the time to roll up your sleeves and get started, you're easy to con."</p>
+        <p>Becca's 90-day answer is simpler: build for profitability. Cash is freedom. Preserve it. Negotiate every supply chain payment term to 100% on delivery, net 45. "No investor is ever going to tell you that's a good idea because they want you to be dependent on them. But profitability is freedom."</p>
+
+        <h2>You cannot take anyone's advice that came before you</h2>
+        <p>This was Becca's sharpest line of the night.</p>
+        <p>"No one who's been a founder before knows anything about being a founder today." The AI era changes everything. The playbooks do not transfer. The advice from people who built in 2015, 2018, 2021 — it does not apply to what you are building right now.</p>
+        <p>What you need: a tight group of founders who are building in the AI era, right now, who you can text and call. People who are living the same conditions. "That's it. Don't listen to anybody else. Not even us."</p>
+        <p>David's version of the same idea: the companies starting from scratch right now, putting every spec of context into an AI-agentic platform, are going to have a revolutionary advantage over companies that started seven months ago, let alone seven years ago. Those companies will spend years catching up on process debt. The ones starting clean have no debt to fix.</p>
+
+        <h2>What is your craft?</h2>
+        <p>Leala asks one question in every interview: what is your craft?</p>
+        <p>Not what you do. Not your title. What is the thing you are, as a person, in the work? What do you bring? "My craft is that I see and connect dots before anyone else. I can see patterns in behavior." That answer tells her everything about who she is hiring and how they think about their own work.</p>
+        <p>She looks for curiosity. People who ask one more question when the conversation is supposed to be over. People who want to know why something works the way it does, not just that it does. "Someone who is not afraid to sort of break things apart — that takes a lot of confidence."</p>
+        <p>Becca hires for the things you cannot teach: work ethic, attitude, resilience. Does getting into the trenches energize that person or paralyze them? Thirty-minute interviews cannot answer that fully. Personality assessments give you some objective data. But the question you are really trying to answer is: when it gets hard, what does this person do?</p>
+
+        <h2>What to take from the room</h2>
+        <ul class="takeaway-list">
+          <li>Becca locked distribution strategy before the product was finished being made. Know exactly how and where your customer will transact with you — two clicks, three clicks, which channel — before you have something to sell.</li>
+          <li>Leala inherited a one-segment insight model on day one at AG1. She built it into the kind of knowledge where any person on the team can buy the customer a birthday present and get it right. If you do not know that about your customer, you do not have a CX plan.</li>
+          <li>David built TikTok Shop himself on a weekend so his team would not have to learn without him. The executive who just forwards the email loses. Roll up your sleeves on anything you're going to manage, hire for, or buy.</li>
+          <li>Beekman sent the ornament to all 5,000 advent calendar buyers, not just the 100 who complained. The 800 who stay silent and leave quietly are the ones who matter most. Do better than best — always more than fixing the problem.</li>
+          <li>Becca's line on advice: no one who built before the AI era knows how to build in it. Find the founders who are building right now, in these conditions, and talk to them. Ignore everyone else, including the people on stage.</li>
+        </ul>
+
+      </div>
+
+      <div class="article-sticky">
+        <div class="speaker-list">
+          <h4>Speakers</h4>
+          <div class="speaker-item"><strong>Leala Francis</strong>AG1</div>
+          <div class="speaker-item"><strong>Becca McCarthy</strong>Evolve</div>
+          <div class="speaker-item"><strong>David Baker</strong>Beekman 1802</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
