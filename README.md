@@ -3,14 +3,14 @@
 Every Willpower panel, recorded and unpacked. This repo holds the media archive page and
 the written breakdowns behind each session.
 
-**Repo:** https://github.com/joaniefelder/willpower-media-draft
+**Repo:** https://github.com/Willpower-HQ/content-library
 
 ## Live site
 
 Not deployed yet from this repo. Connect Netlify once and every push to `main` publishes
 automatically:
 
-> **Deploy:** https://app.netlify.com/start/deploy?repository=https://github.com/joaniefelder/willpower-media-draft
+> **Deploy:** https://app.netlify.com/start/deploy?repository=https://github.com/Willpower-HQ/content-library
 
 `netlify.toml` is already set up (publish directory `.`, no build step), so accept the
 defaults. After the first deploy, put the real URL here:
@@ -37,13 +37,13 @@ updated since June and does not contain any of this work. Ignore it.
 ## Editing
 
 Work in the browser with no setup by pressing `.` on the repo page, or go to
-https://github.dev/joaniefelder/willpower-media-draft
+https://github.dev/Willpower-HQ/content-library
 
 Or locally:
 
 ```bash
-git clone https://github.com/joaniefelder/willpower-media-draft.git
-cd willpower-media-draft
+git clone https://github.com/Willpower-HQ/content-library.git
+cd content-library
 claude
 ```
 
