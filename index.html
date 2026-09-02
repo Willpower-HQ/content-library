@@ -5,40 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex,nofollow" />
   <title>Media · Willpower</title>
-  <meta name="description" content="Panel recordings and the insights behind them, from Willpower events. The conversations consumer, wellness, and performance brand leaders are having, in full." />
-  <meta property="og:title" content="Media · Willpower" />
-  <meta property="og:description" content="Panel recordings and the insights behind them, from Willpower events." />
-  <meta property="og:image" content="https://starlit-crostata-9f186f.netlify.app/assets/photos/wh26-greg-power-of-brand.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="32x32" href="https://starlit-crostata-9f186f.netlify.app/assets/favicon-32.png?v=2" />
-  <link rel="apple-touch-icon" sizes="180x180" href="https://starlit-crostata-9f186f.netlify.app/assets/apple-touch-icon.png?v=2" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://starlit-crostata-9f186f.netlify.app/assets/subpage.css" />
 
   <style>
-    /* ─── Base ─────────────────────────────────────────────── */
+    :root {
+      --wh:     #7baad4;
+      --lounge: #72b89a;
+      --wos:    #a87dc4;
+      --hps:    #c47a7a;
+    }
+
     body { overflow-x: hidden; }
 
-    /* ─── Series color tokens ──────────────────────────────── */
-    :root {
-      --wh:     #7baad4;   /* Wellness House  — site blue     */
-      --cat:    #d4956a;   /* Catalyst        — amber         */
-      --lounge: #72b89a;   /* Wellness Lounge — sage          */
-      --wos:    #a87dc4;   /* World of Sports — violet        */
-      --hps:    #c47a7a;   /* Human Perf.     — coral         */
-    }
-
-    /* ─── Map legend ───────────────────────────────────────── */
-    .legend-band {
-      background: var(--card2, rgba(255,255,255,0.03));
+    /* ── Legend bar ── */
+    .legend-bar {
+      background: rgba(255,255,255,0.02);
       border-bottom: 1px solid var(--border);
+      padding: 0 40px;
     }
     .legend-inner {
-      max-width: 1100px; margin: 0 auto;
-      padding: 14px 40px;
-      display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+      max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
     }
     .legend-label {
       font-family: 'Space Mono', monospace;
@@ -46,327 +39,182 @@
       text-transform: uppercase; color: var(--muted);
       white-space: nowrap; flex-shrink: 0;
     }
-    .legend-items {
-      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
-    }
+    .legend-items { display: flex; align-items: center; gap: 0; flex: 1; justify-content: space-evenly; }
     .legend-item {
-      display: flex; align-items: center; gap: 7px;
-      font-size: 12px; color: var(--muted);
-      white-space: nowrap;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; color: var(--muted); white-space: nowrap;
     }
-    .legend-item .bird { width: 18px; height: 13px; flex-shrink: 0; }
-
-    /* ─── Series accordion ─────────────────────────────────── */
-    .series-wrap {
-      max-width: 1100px; margin: 0 auto;
-      padding: 40px 40px 100px;
-      display: flex; flex-direction: column; gap: 2px;
+    .legend-dot {
+      width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
     }
 
-    .sc {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: var(--card);
-      overflow: hidden;
-      transition: border-color .2s;
+    /* ── Grid ── */
+    .grid-wrap {
+      max-width: 1280px; margin: 0 auto;
+      padding: 32px 40px 100px;
     }
-    .sc.open { border-color: rgba(255,255,255,.12); }
 
-    .sc__head {
-      display: grid; grid-template-columns: 48px 1fr auto;
-      align-items: center; cursor: pointer; user-select: none;
-      transition: background .15s;
-    }
-    .sc__head:hover { background: var(--card2); }
-
-    .sc__icon {
-      width: 48px; height: 64px;
-      display: flex; align-items: center; justify-content: center;
-      border-right: 1px solid var(--border); flex-shrink: 0;
-      color: var(--muted);
-    }
-    .sc__icon svg { opacity: .35; transition: opacity .15s; }
-    .sc.open .sc__icon svg { opacity: .7; }
-
-    .sc__info { padding: 18px 24px; }
-    .sc__name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px; font-weight: 400; color: var(--white);
-      margin-bottom: 3px; line-height: 1.2;
-    }
-    .sc__name em { font-style: italic; }
-    .sc__sub { font-size: 12px; color: var(--muted); letter-spacing: .02em; }
-
-    .sc__right {
-      padding: 18px 24px; display: flex; align-items: center;
-      gap: 14px; flex-shrink: 0;
-    }
-    .sc__count { font-size: 12px; color: var(--muted); white-space: nowrap; }
-    .sc__count strong { color: rgba(255,255,255,.55); font-weight: 400; }
-    .sc__badge {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px; font-weight: 700; letter-spacing: .1em;
-      text-transform: uppercase; padding: 4px 10px;
-      border-radius: 99px; border: 1px solid var(--border);
-      color: var(--muted); white-space: nowrap;
-    }
-    .sc__badge.live {
-      background: rgba(123,170,212,.10);
-      border-color: rgba(123,170,212,.35);
-      color: var(--blue);
-    }
-    .sc__chevron {
-      width: 18px; height: 18px; color: var(--muted);
-      transition: transform .25s, color .15s; flex-shrink: 0;
-    }
-    .sc.open .sc__chevron { transform: rotate(180deg); color: rgba(255,255,255,.4); }
-
-    .sc__body { display: none; border-top: 1px solid var(--border); }
-    .sc.open .sc__body { display: block; }
-    .sc__inner { padding: 22px 28px 26px; }
-
-    /* ─── Keynote row ───────────────────────────────────────── */
-    .kn-row {
-      display: flex; align-items: center;
-      border: 1px solid var(--border); border-radius: 8px;
-      background: var(--card2); margin-bottom: 14px;
-      overflow: hidden; cursor: pointer; transition: border-color .2s;
-    }
-    .kn-row:hover { border-color: rgba(255,255,255,.2); }
-    .kn-mark { width: 3px; align-self: stretch; flex-shrink: 0; }
-    .kn-body { padding: 12px 16px; flex: 1; }
-    .kn-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px; font-weight: 700; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 4px;
-    }
-    .kn-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 15px; color: var(--white); line-height: 1.35;
-    }
-    .kn-title em { font-style: italic; }
-    .kn-speaker { font-size: 11px; color: var(--muted); margin-top: 3px; }
-    .kn-arrow { padding: 0 16px; font-size: 12px; color: var(--muted); flex-shrink: 0; }
-    .kn-bird { padding: 0 18px 0 4px; flex-shrink: 0; }
-
-    /* ─── Session rows ──────────────────────────────────────── */
-    .session-list { display: flex; flex-direction: column; }
-    .session-row {
+    .video-grid {
       display: grid;
-      grid-template-columns: 74px 1fr auto 28px;
-      gap: 12px; align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-      cursor: pointer; transition: opacity .15s;
-    }
-    .session-row:first-child { border-top: 1px solid var(--border); }
-    .session-row:hover { opacity: .62; }
-
-    .sr__num {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px; color: var(--muted); letter-spacing: .05em;
-    }
-    .sr__title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 15px; color: var(--white); line-height: 1.3;
-    }
-    .sr__title em { font-style: italic; }
-    .sr__brands { font-size: 11px; color: var(--muted); margin-top: 2px; }
-
-    .sr__tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px; font-weight: 700; letter-spacing: .07em;
-      text-transform: uppercase; padding: 3px 8px; border-radius: 4px;
-      white-space: nowrap; flex-shrink: 0;
-    }
-    .sr__tag--new {
-      background: rgba(123,170,212,.12); color: var(--blue);
-      border: 1px solid rgba(123,170,212,.3);
-    }
-    .sr__tag--recap {
-      background: var(--card2); color: var(--muted);
-      border: 1px solid var(--border);
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px 20px;
     }
 
-    /* Bird mark at end of row */
-    .sr__bird { display: flex; align-items: center; justify-content: flex-end; flex-shrink: 0; }
-    .sr__bird .bird { width: 18px; height: 13px; opacity: .75; }
-    .session-row:hover .sr__bird .bird { opacity: 1; }
-
-    /* ─── Bird SVG helper ───────────────────────────────────── */
-    .bird { display: block; overflow: visible; }
-
-    /* ─── Dinner rows ───────────────────────────────────────── */
-    .dinner-list { display: flex; flex-direction: column; }
-    .dinner-row {
-      display: grid; grid-template-columns: 110px 1fr 80px 28px;
-      gap: 12px; align-items: center;
-      padding: 12px 0; border-bottom: 1px solid var(--border);
-    }
-    .dinner-row:first-child { border-top: 1px solid var(--border); }
-    .dr__date { font-size: 11px; color: var(--muted); }
-    .dr__title { font-size: 13px; color: var(--white); line-height: 1.3; }
-    .dr__title em { font-family: 'Cormorant Garamond', serif; font-style: italic; }
-    .dr__brands { font-size: 11px; color: var(--muted); margin-top: 2px; }
-    .dr__link { font-size: 11px; color: var(--muted); text-align: right; }
-
-    /* ─── Sub label ─────────────────────────────────────────── */
-    .sub-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px; font-weight: 700; letter-spacing: .13em;
-      text-transform: uppercase; color: var(--muted);
-      margin: 18px 0 10px; padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
-    }
-    .sub-label:first-child { margin-top: 0; }
-
-    /* ─── Body CTA ──────────────────────────────────────────── */
-    .body-cta {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 16px; flex-wrap: wrap;
-      margin-top: 18px; padding-top: 18px;
-      border-top: 1px solid var(--border);
-    }
-    .body-cta__text { font-size: 13px; color: var(--muted); }
-    .body-cta__text strong { color: rgba(255,255,255,.7); font-weight: 500; }
-
-    /* ─── Empty state ───────────────────────────────────────── */
-    .empty { padding: 28px; text-align: center; }
-    .empty__title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 17px; font-weight: 300;
-      color: var(--muted); margin-bottom: 5px;
-    }
-    .empty__title em { font-style: italic; }
-    .empty__sub { font-size: 12px; color: var(--muted); opacity: .55; }
-
-    /* ─── Drawer ────────────────────────────────────────────── */
-    .drawer-overlay {
-      position: fixed; inset: 0; z-index: 200;
-      background: rgba(0,0,0,0); pointer-events: none;
-      transition: background .3s;
-    }
-    .drawer-overlay.open { background: rgba(0,0,0,0.72); pointer-events: all; }
-
-    .drawer {
-      position: fixed; top: 0; right: 0; bottom: 0;
-      width: min(700px, 100vw); z-index: 201;
-      background: var(--bg, #08090e);
-      border-left: 1px solid var(--border);
+    /* ── Card ── */
+    .vc {
       display: flex; flex-direction: column;
-      transform: translateX(100%);
-      transition: transform .35s cubic-bezier(.4,0,.2,1);
-      overflow: hidden;
+      cursor: pointer;
+      transition: opacity .15s;
     }
-    .drawer.open { transform: translateX(0); }
+    .vc:hover { opacity: .85; }
+    .vc.hidden { display: none; }
 
-    .drawer__bar {
-      flex-shrink: 0; height: 56px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 24px; border-bottom: 1px solid var(--border);
-      background: var(--card);
-    }
-    .drawer__bar-left { display: flex; align-items: center; gap: 14px; min-width: 0; }
-    .drawer__label {
-      font-family: 'Space Mono', monospace;
-      font-size: 9px; font-weight: 700; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--muted); white-space: nowrap;
-    }
-    .drawer__title-short {
-      font-size: 13px; color: var(--white);
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-      max-width: 340px;
-    }
-    .drawer__bar-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-    .drawer__full-link {
-      font-size: 12px; color: var(--muted);
-      padding: 6px 14px; border-radius: 6px;
+    .vc__thumb {
+      position: relative; aspect-ratio: 16/9;
+      border-radius: 8px; overflow: hidden;
+      background: var(--card2);
       border: 1px solid var(--border);
-      transition: color .15s, border-color .15s; white-space: nowrap;
+      margin-bottom: 10px;
     }
-    .drawer__full-link:hover { color: var(--white); border-color: rgba(255,255,255,.2); }
-    .drawer__close {
-      width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
-      border-radius: 6px; cursor: pointer; border: 1px solid var(--border);
-      color: var(--muted); background: none;
-      transition: color .15s, border-color .15s, background .15s;
-      font-size: 16px; line-height: 1;
-    }
-    .drawer__close:hover { color: var(--white); border-color: rgba(255,255,255,.2); background: var(--card2); }
-
-    .drawer__content { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; }
-    .drawer__content::-webkit-scrollbar { width: 4px; }
-    .drawer__content::-webkit-scrollbar-track { background: transparent; }
-    .drawer__content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-
-    .drawer-loading {
-      display: flex; align-items: center; justify-content: center;
-      height: 300px; color: var(--muted); font-size: 13px; gap: 12px;
-    }
-    .drawer-spinner {
-      width: 18px; height: 18px;
-      border: 1.5px solid var(--border); border-top-color: var(--blue);
-      border-radius: 50%; animation: dspin .7s linear infinite;
-    }
-    @keyframes dspin { to { transform: rotate(360deg); } }
-
-    .drawer__content .nav,
-    .drawer__content nav,
-    .drawer__content .footer,
-    .drawer__content footer,
-    .drawer__content .sp-header,
-    .drawer__content .sp-footer { display: none !important; }
-
-    /* ─── Video frame ───────────────────────────────────────── */
-    .video-frame {
-      position: relative; width: 100%; aspect-ratio: 16 / 9;
-      border-radius: 10px; overflow: hidden;
-      border: 1px solid var(--border); background: var(--card2);
-    }
-    .video-frame iframe, .video-frame video {
+    .vc__thumb iframe, .vc__thumb video {
       position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
     }
-    .vf-placeholder {
+    .vc__thumb .thumb-placeholder {
       position: absolute; inset: 0;
       display: flex; align-items: center; justify-content: center;
     }
-
-    /* ─── Responsive ────────────────────────────────────────── */
-    @media (max-width: 768px) {
-      .drawer { width: 100vw; }
-      .sc__right { display: none; }
+    .vc__thumb .play-btn {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .2s;
+      background: rgba(0,0,0,.4);
     }
-    @media (max-width: 640px) {
-      .series-wrap { padding-left: 20px; padding-right: 20px; }
-      .legend-inner { padding: 12px 20px; gap: 12px; }
-      .session-row { grid-template-columns: 56px 1fr 28px; }
-      .sr__tag { display: none; }
-      .dinner-row { grid-template-columns: 80px 1fr 28px; }
-      .dr__link { display: none; }
+    .vc:hover .play-btn { opacity: 1; }
+    .play-btn span {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(8,9,14,.7); border: 1px solid rgba(255,255,255,.25);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white);
+    }
+
+    /* color bar at bottom of thumb */
+    .vc__thumb::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .vc[data-series="wh"]     .vc__thumb::after { background: var(--wh); }
+    .vc[data-series="lounge"] .vc__thumb::after { background: var(--lounge); }
+    .vc[data-series="wos"]    .vc__thumb::after { background: var(--wos); }
+    .vc[data-series="hps"]    .vc__thumb::after { background: var(--hps); }
+
+    .vc__meta {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 5px;
+    }
+    .vc__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px; font-weight: 400; line-height: 1.25;
+      color: var(--white); margin-bottom: 4px;
+    }
+    .vc__title em { font-style: italic; }
+    .vc__brands {
+      font-size: 11px; color: var(--muted); line-height: 1.4;
+    }
+    .vc__read {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--wh); text-decoration: none;
+      opacity: 1;
+    }
+    .vc[data-series="wh"] .vc__read { color: var(--wh); }
+    .vc__read:hover { opacity: .7; }
+
+
+    /* ── Modal ── */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 300;
+      background: rgba(0,0,0,0); pointer-events: none;
+      transition: background .25s;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.open {
+      background: rgba(0,0,0,.85); pointer-events: all;
+    }
+    .modal {
+      width: 100%; max-width: 900px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+      transform: scale(.95); opacity: 0;
+      transition: transform .25s, opacity .25s;
+    }
+    .modal-overlay.open .modal { transform: scale(1); opacity: 1; }
+
+    .modal__bar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 20px; border-bottom: 1px solid var(--border);
+      background: var(--card2);
+    }
+    .modal__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px; color: var(--white); line-height: 1.2;
+    }
+    .modal__close {
+      width: 32px; height: 32px; border-radius: 6px;
+      border: 1px solid var(--border); background: none;
+      color: var(--muted); cursor: pointer; font-size: 16px;
+      display: flex; align-items: center; justify-content: center;
+      transition: color .15s, border-color .15s;
+    }
+    .modal__close:hover { color: var(--white); border-color: rgba(255,255,255,.2); }
+
+    .modal__video {
+      position: relative; aspect-ratio: 16/9;
+      background: #000;
+    }
+    .modal__video iframe {
+      position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+    }
+    .modal__video .thumb-placeholder {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--card2);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .filter-bar { padding: 0 20px; }
+      .grid-wrap { padding: 24px 20px 80px; }
+      .video-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .video-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
 
-<!-- ── Drawer ────────────────────────────────────────────────── -->
-<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
-<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Panel content">
-  <div class="drawer__bar">
-    <div class="drawer__bar-left">
-      <span class="drawer__label">Session</span>
-      <span class="drawer__title-short" id="drawerTitleShort"></span>
+<!-- ── Modal ── -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal__bar">
+      <div class="modal__title" id="modalTitle"></div>
+      <button class="modal__close" onclick="closeModal()" aria-label="Close">✕</button>
     </div>
-    <div class="drawer__bar-right">
-      <a href="#" id="drawerFullLink" class="drawer__full-link" target="_blank">Open full page →</a>
-      <button class="drawer__close" onclick="closeDrawer()" aria-label="Close">✕</button>
+    <div class="modal__video" id="modalVideo">
+      <div class="thumb-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="rgba(255,255,255,0.15)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      </div>
     </div>
-  </div>
-  <div class="drawer__content" id="drawerContent">
-    <div class="drawer-loading"><div class="drawer-spinner"></div><span>Loading…</span></div>
   </div>
 </div>
 
-<!-- ── Header ────────────────────────────────────────────────── -->
+<!-- ── Header ── -->
 <header class="sp-header">
   <a href="/" class="brand" aria-label="Willpower home">
     <img src="https://starlit-crostata-9f186f.netlify.app/assets/logos/willpower-logo-white.png" alt="" loading="eager" />
@@ -381,345 +229,177 @@
   </nav>
 </header>
 
-<!-- ── Hero ──────────────────────────────────────────────────── -->
+<!-- ── Hero ── -->
 <section class="sp-hero">
   <div class="wrap">
     <p class="eyebrow">Media</p>
     <h1 class="headline">The conversations, in full. <em>And what they mean.</em></h1>
-    <p class="body-lg">Every Willpower panel, recorded and unpacked. Watch the room, then read what the operators actually wrote down.</p>
+    <p class="body-lg">Every Willpower panel, recorded and unpacked. Watch the room while reading what the operators actually wrote down.</p>
   </div>
 </section>
 
-<!-- ── Series Legend (map key) ───────────────────────────────── -->
-<div class="legend-band">
+<!-- ── Legend ── -->
+<div class="legend-bar">
   <div class="legend-inner">
-    <span class="legend-label">Series key</span>
+    <span class="legend-label">Series</span>
     <div class="legend-items">
-
-      <div class="legend-item">
-        <svg class="bird" viewBox="0 0 24 16" fill="var(--wh)" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M12 2C10 2 7.5 3 5.5 5.5C3.5 8 2.5 10.5 3 12.5C4.5 10.5 7 9 9.5 8.5C11 8 12 7.5 12 9C12 7.5 13 8 14.5 8.5C17 9 19.5 10.5 21 12.5C21.5 10.5 20.5 8 18.5 5.5C16.5 3 14 2 12 2Z"/>
-        </svg>
-        Wellness House
-      </div>
-
-      <div class="legend-item">
-        <svg class="bird" viewBox="0 0 24 16" fill="var(--cat)" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M12 2C10 2 7.5 3 5.5 5.5C3.5 8 2.5 10.5 3 12.5C4.5 10.5 7 9 9.5 8.5C11 8 12 7.5 12 9C12 7.5 13 8 14.5 8.5C17 9 19.5 10.5 21 12.5C21.5 10.5 20.5 8 18.5 5.5C16.5 3 14 2 12 2Z"/>
-        </svg>
-        Catalyst
-      </div>
-
-      <div class="legend-item">
-        <svg class="bird" viewBox="0 0 24 16" fill="var(--lounge)" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M12 2C10 2 7.5 3 5.5 5.5C3.5 8 2.5 10.5 3 12.5C4.5 10.5 7 9 9.5 8.5C11 8 12 7.5 12 9C12 7.5 13 8 14.5 8.5C17 9 19.5 10.5 21 12.5C21.5 10.5 20.5 8 18.5 5.5C16.5 3 14 2 12 2Z"/>
-        </svg>
-        Wellness Lounge
-      </div>
-
-      <div class="legend-item">
-        <svg class="bird" viewBox="0 0 24 16" fill="var(--wos)" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M12 2C10 2 7.5 3 5.5 5.5C3.5 8 2.5 10.5 3 12.5C4.5 10.5 7 9 9.5 8.5C11 8 12 7.5 12 9C12 7.5 13 8 14.5 8.5C17 9 19.5 10.5 21 12.5C21.5 10.5 20.5 8 18.5 5.5C16.5 3 14 2 12 2Z"/>
-        </svg>
-        World of Sports
-      </div>
-
-      <div class="legend-item">
-        <svg class="bird" viewBox="0 0 24 16" fill="var(--hps)" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M12 2C10 2 7.5 3 5.5 5.5C3.5 8 2.5 10.5 3 12.5C4.5 10.5 7 9 9.5 8.5C11 8 12 7.5 12 9C12 7.5 13 8 14.5 8.5C17 9 19.5 10.5 21 12.5C21.5 10.5 20.5 8 18.5 5.5C16.5 3 14 2 12 2Z"/>
-        </svg>
-        Human Performance
-      </div>
-
+      <div class="legend-item"><span class="legend-dot" style="background:var(--wh)"></span>Wellness House</div>
+      <div class="legend-item"><span class="legend-dot" style="background:var(--lounge)"></span>Wellness Lounge</div>
+      <div class="legend-item"><span class="legend-dot" style="background:var(--wos)"></span>World of Sports</div>
+      <div class="legend-item"><span class="legend-dot" style="background:var(--hps)"></span>Human Performance</div>
     </div>
   </div>
 </div>
 
-<!-- ── Archive ────────────────────────────────────────────────── -->
-<div class="series-wrap">
+<!-- ── Grid ── -->
+<div class="grid-wrap">
+  <div class="video-grid" id="videoGrid">
 
-  <!-- Wellness House 2025 · Session 07 -->
-  <div class="sc" id="sc-wh-07">
-    <div class="sc__head" onclick="toggle('sc-wh-07')">
-      <div class="sc__icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    <!-- Wellness House 2025 · Keynote -->
+    <div class="vc" data-series="wh" onclick="openModal('Founder mode in health &amp; wellness', 'https://www.youtube.com/embed/JLt_e3vAUzs')">
+      <div class="vc__thumb">
+        <img src="https://img.youtube.com/vi/JLt_e3vAUzs/maxresdefault.jpg" alt="Founder mode in health and wellness" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
       </div>
-      <div class="sc__info">
-        <div class="sc__name">The future of commerce: <em>brand, community &amp; AI</em></div>
-        <div class="sc__sub">Wellness House 2025 · Austin, TX · Session 07</div>
-      </div>
-      <div class="sc__right">
-        <div class="sc__badge live">New</div>
-        <svg class="bird" viewBox="0 0 24 16" fill="var(--wh)" aria-hidden="true" style="width:20px;height:14px;flex-shrink:0;"><path d="M12 2C10 2 7.5 3 5.5 5.5C3.5 8 2.5 10.5 3 12.5C4.5 10.5 7 9 9.5 8.5C11 8 12 7.5 12 9C12 7.5 13 8 14.5 8.5C17 9 19.5 10.5 21 12.5C21.5 10.5 20.5 8 18.5 5.5C16.5 3 14 2 12 2Z"/></svg>
-        <svg class="sc__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
-      </div>
+      <div class="vc__meta">Wellness House 2025</div>
+      <div class="vc__title">Bloom Nutrition</div>
+      <div class="vc__brands">Greg LaVecchia</div>
+      <a class="vc__read" href="articles/keynote.html" onclick="event.stopPropagation()">Read the breakdown &#8594;</a>
     </div>
-    <div class="sc__body">
-      <div class="sc__inner">
-        <!-- EDIT ME ▸ replace placeholder with: <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="..." allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe> -->
-        <div class="video-frame"><div class="vf-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="rgba(123,170,212,0.4)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div></div>
-        <p style="margin-top:1rem;font-size:0.88rem;color:rgba(255,255,255,0.55);">Tecovas · YETI · Estée Lauder · Shopify</p>
+
+    <!-- Wellness House 2025 · Panel 1 -->
+    <div class="vc" data-series="wh" onclick="openModal('Founders rebuilding health &amp; wellness', 'https://www.youtube.com/embed/vLqJHfTcjdw')">
+      <div class="vc__thumb">
+        <img src="https://img.youtube.com/vi/vLqJHfTcjdw/maxresdefault.jpg" alt="Founders rebuilding health and wellness" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
       </div>
+      <div class="vc__meta">Wellness House 2025</div>
+      <div class="vc__title">Tiny Health · Function · Throne Science</div>
+      <div class="vc__brands">Cheryl Sihoi · Scott Hinkle · Pranitha</div>
+      <a class="vc__read" href="articles/panel-1.html" onclick="event.stopPropagation()">Read the breakdown &#8594;</a>
     </div>
+
+    <!-- Wellness House 2025 · Panel 2 -->
+    <div class="vc" data-series="wh" onclick="openModal('The power of routine', 'https://www.youtube.com/embed/XTjBW8ZCuLQ')">
+      <div class="vc__thumb">
+        <img src="https://img.youtube.com/vi/XTjBW8ZCuLQ/maxresdefault.jpg" alt="The power of routine" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      </div>
+      <div class="vc__meta">Wellness House 2025</div>
+      <div class="vc__title">WHOOP · HigherDOSE · Wellworthy</div>
+      <div class="vc__brands">John Sullivan · Ingrid Millman-Cordy</div>
+      <a class="vc__read" href="articles/panel-2.html" onclick="event.stopPropagation()">Read the breakdown &#8594;</a>
+    </div>
+
+    <!-- Wellness House 2025 · Panel 3 -->
+    <div class="vc" data-series="wh" onclick="openModal('Founder mode: getting scrappy', 'https://www.youtube.com/embed/tfcpY9Z9qYI')">
+      <div class="vc__thumb">
+        <img src="https://img.youtube.com/vi/tfcpY9Z9qYI/maxresdefault.jpg" alt="Founder mode getting scrappy" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      </div>
+      <div class="vc__meta">Wellness House 2025</div>
+      <div class="vc__title">437 Swimwear · Good Wipes · It's That Simple</div>
+      <div class="vc__brands">Hila Stoch · Sam Nebel · Brian</div>
+      <a class="vc__read" href="articles/panel-3.html" onclick="event.stopPropagation()">Read the breakdown &#8594;</a>
+    </div>
+
+    <!-- Wellness House 2025 · Panel 4 -->
+    <div class="vc" data-series="wh" onclick="openModal('Wellness at the core of community', 'https://www.youtube.com/embed/t8JANis7Os8')">
+      <div class="vc__thumb">
+        <img src="https://img.youtube.com/vi/t8JANis7Os8/maxresdefault.jpg" alt="Wellness at the core of community" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      </div>
+      <div class="vc__meta">Wellness House 2025</div>
+      <div class="vc__title">Vivo Barefoot · Sweat Pals</div>
+      <div class="vc__brands">Eric · Salar · Nick</div>
+      <a class="vc__read" href="articles/panel-4.html" onclick="event.stopPropagation()">Read the breakdown &#8594;</a>
+    </div>
+
+    <!-- Wellness House 2025 · Panel 6 -->
+    <div class="vc" data-series="wh" onclick="openModal('Building worlds through sports', 'https://www.youtube.com/embed/M3md2s81Sx8')">
+      <div class="vc__thumb">
+        <img src="https://img.youtube.com/vi/M3md2s81Sx8/maxresdefault.jpg" alt="Building worlds through sports" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      </div>
+      <div class="vc__meta">Wellness House 2025</div>
+      <div class="vc__title">San Antonio Spurs · MLP · Tyler Eifert</div>
+      <div class="vc__brands">Brian · Evan · Tyler</div>
+      <a class="vc__read" href="articles/panel-6.html" onclick="event.stopPropagation()">Read the breakdown &#8594;</a>
+    </div>
+
+    <!-- Wellness House 2025 · Panel 7 -->
+    <div class="vc" data-series="wh" onclick="openModal('The future of commerce: brand, community &amp; AI', 'https://www.youtube.com/embed/dWat1UO9q9U')">
+      <div class="vc__thumb">
+        <img src="https://img.youtube.com/vi/dWat1UO9q9U/maxresdefault.jpg" alt="The future of commerce" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      </div>
+      <div class="vc__meta">Wellness House 2025</div>
+      <div class="vc__title">Tecovas · YETI · Estée Lauder · Shopify</div>
+      <div class="vc__brands">Krista Dalton · Bill Neff · Kumkum Pinto</div>
+      <a class="vc__read" href="articles/panel-7.html" onclick="event.stopPropagation()">Read the breakdown &#8594;</a>
+    </div>
+
+    <!-- Wellness Lounge · Aug 2026 -->
+    <div class="vc" data-series="lounge" onclick="openModal('Buying attention vs earning it', 'https://www.youtube.com/embed/0lDcBnpIfuI')">
+      <div class="vc__thumb">
+        <img src="https://img.youtube.com/vi/0lDcBnpIfuI/maxresdefault.jpg" alt="Buying attention vs earning it" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      </div>
+      <div class="vc__meta">The Wellness Lounge · Aug 19, 2026</div>
+      <div class="vc__title">Bandit Running · NY Knicks · Ultra</div>
+      <div class="vc__brands">Nick West · Toby Gimand · Ankur Goyal</div>
+      <a class="vc__read" href="articles/wellness-lounge-aug19.html" onclick="event.stopPropagation()">Read the breakdown &#8594;</a>
+    </div>
+
+    <!-- Wellness Lounge · May 2026 -->
+    <div class="vc" data-series="lounge" onclick="openModal('Building from scratch', 'https://www.youtube.com/embed/YlzN2CLT8I8')">
+      <div class="vc__thumb">
+        <img src="https://img.youtube.com/vi/YlzN2CLT8I8/maxresdefault.jpg" alt="Building from scratch" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      </div>
+      <div class="vc__meta">The Wellness Lounge · May 20, 2026</div>
+      <div class="vc__title">AG1 · Evolve · Beekman 1802</div>
+      <div class="vc__brands">Leala Francis · Becca McCarthy · David Baker</div>
+      <a class="vc__read" href="articles/wh26-building-from-scratch.html" onclick="event.stopPropagation()">Read the breakdown &#8594;</a>
+    </div>
+
+    <!-- Wellness Lounge · Nov 2025 -->
+    <div class="vc" data-series="lounge" onclick="openModal('Capitalizing on the future of wellness', '')">
+      <div class="vc__thumb">
+        <div class="thumb-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="rgba(114,184,154,0.3)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      </div>
+      <div class="vc__meta">The Wellness Lounge · Nov 10, 2025</div>
+      <div class="vc__title">Capitalizing on the future of <em>wellness</em></div>
+      <div class="vc__brands">Masa Chips · Caulipower · HYROX · Soho House NYC</div>
+    </div>
+
+    <!-- Wellness Lounge · Jul 2025 -->
+    <div class="vc" data-series="lounge" onclick="openModal('Cutting through the noise', '')">
+      <div class="vc__thumb">
+        <div class="thumb-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="rgba(114,184,154,0.3)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      </div>
+      <div class="vc__meta">The Wellness Lounge · Jul 29, 2025</div>
+      <div class="vc__title">Cutting through <em>the noise</em></div>
+      <div class="vc__brands">Slate Milk · Othership · WHOOP</div>
+    </div>
+
+    <!-- Wellness Lounge · May 2025 -->
+    <div class="vc" data-series="lounge" onclick="openModal('Brand breakouts &amp; buyouts', '')">
+      <div class="vc__thumb">
+        <div class="thumb-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="rgba(114,184,154,0.3)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      </div>
+      <div class="vc__meta">The Wellness Lounge · May 27, 2025</div>
+      <div class="vc__title">Brand breakouts &amp; buyouts w/ <em>HelloFresh &amp; Daily Harvest</em></div>
+      <div class="vc__brands">HelloFresh · Daily Harvest · Poppi · Padel Haus</div>
+    </div>
+
   </div>
-
-  <!-- Wellness House 2025 · Session 06 -->
-  <div class="sc" id="sc-wh-06">
-    <div class="sc__head" onclick="toggle('sc-wh-06')">
-      <div class="sc__icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <div class="sc__info">
-        <div class="sc__name">Building worlds <em>through sports</em></div>
-        <div class="sc__sub">Wellness House 2025 · Austin, TX · Session 06</div>
-      </div>
-      <div class="sc__right">
-        <svg class="bird" viewBox="0 0 24 16" fill="var(--wh)" aria-hidden="true" style="width:20px;height:14px;flex-shrink:0;"><path d="M12 2C10 2 7.5 3 5.5 5.5C3.5 8 2.5 10.5 3 12.5C4.5 10.5 7 9 9.5 8.5C11 8 12 7.5 12 9C12 7.5 13 8 14.5 8.5C17 9 19.5 10.5 21 12.5C21.5 10.5 20.5 8 18.5 5.5C16.5 3 14 2 12 2Z"/></svg>
-        <svg class="sc__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
-      </div>
-    </div>
-    <div class="sc__body">
-      <div class="sc__inner">
-        <div class="video-frame"><div class="vf-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="rgba(123,170,212,0.4)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div></div>
-        <p style="margin-top:1rem;font-size:0.88rem;color:rgba(255,255,255,0.55);">San Antonio Spurs · MLP · Tyler Eifert</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Wellness House 2025 · Session 05 -->
-  <div class="sc" id="sc-wh-05">
-    <div class="sc__head" onclick="toggle('sc-wh-05')">
-      <div class="sc__icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <div class="sc__info">
-        <div class="sc__name">Comedy panel: <em>the roast</em></div>
-        <div class="sc__sub">Wellness House 2025 · Austin, TX · Session 05</div>
-      </div>
-      <div class="sc__right">
-        <svg class="bird" viewBox="0 0 24 16" fill="var(--wh)" aria-hidden="true" style="width:20px;height:14px;flex-shrink:0;"><path d="M12 2C10 2 7.5 3 5.5 5.5C3.5 8 2.5 10.5 3 12.5C4.5 10.5 7 9 9.5 8.5C11 8 12 7.5 12 9C12 7.5 13 8 14.5 8.5C17 9 19.5 10.5 21 12.5C21.5 10.5 20.5 8 18.5 5.5C16.5 3 14 2 12 2Z"/></svg>
-        <svg class="sc__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
-      </div>
-    </div>
-    <div class="sc__body">
-      <div class="sc__inner">
-        <div class="video-frame"><div class="vf-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="rgba(123,170,212,0.4)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div></div>
-        <p style="margin-top:1rem;font-size:0.88rem;color:rgba(255,255,255,0.55);">Super Coffee · Lofty · Kaviva · Jevity · Kintsugi</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Wellness House 2025 · Session 04 -->
-  <div class="sc" id="sc-wh-04">
-    <div class="sc__head" onclick="toggle('sc-wh-04')">
-      <div class="sc__icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <div class="sc__info">
-        <div class="sc__name">Wellness at <em>the core of community</em></div>
-        <div class="sc__sub">Wellness House 2025 · Austin, TX · Session 04</div>
-      </div>
-      <div class="sc__right">
-        <svg class="bird" viewBox="0 0 24 16" fill="var(--wh)" aria-hidden="true" style="width:20px;height:14px;flex-shrink:0;"><path d="M12 2C10 2 7.5 3 5.5 5.5C3.5 8 2.5 10.5 3 12.5C4.5 10.5 7 9 9.5 8.5C11 8 12 7.5 12 9C12 7.5 13 8 14.5 8.5C17 9 19.5 10.5 21 12.5C21.5 10.5 20.5 8 18.5 5.5C16.5 3 14 2 12 2Z"/></svg>
-        <svg class="sc__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
-      </div>
-    </div>
-    <div class="sc__body">
-      <div class="sc__inner">
-        <div class="video-frame"><div class="vf-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="rgba(123,170,212,0.4)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div></div>
-        <p style="margin-top:1rem;font-size:0.88rem;color:rgba(255,255,255,0.55);">Vivo Barefoot · Sweat Pals</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Wellness House 2025 · Session 03 -->
-  <div class="sc" id="sc-wh-03">
-    <div class="sc__head" onclick="toggle('sc-wh-03')">
-      <div class="sc__icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <div class="sc__info">
-        <div class="sc__name">Founder mode: <em>getting scrappy</em></div>
-        <div class="sc__sub">Wellness House 2025 · Austin, TX · Session 03</div>
-      </div>
-      <div class="sc__right">
-        <svg class="bird" viewBox="0 0 24 16" fill="var(--wh)" aria-hidden="true" style="width:20px;height:14px;flex-shrink:0;"><path d="M12 2C10 2 7.5 3 5.5 5.5C3.5 8 2.5 10.5 3 12.5C4.5 10.5 7 9 9.5 8.5C11 8 12 7.5 12 9C12 7.5 13 8 14.5 8.5C17 9 19.5 10.5 21 12.5C21.5 10.5 20.5 8 18.5 5.5C16.5 3 14 2 12 2Z"/></svg>
-        <svg class="sc__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
-      </div>
-    </div>
-    <div class="sc__body">
-      <div class="sc__inner">
-        <div class="video-frame"><div class="vf-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="rgba(123,170,212,0.4)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div></div>
-        <p style="margin-top:1rem;font-size:0.88rem;color:rgba(255,255,255,0.55);">437 Swimwear · Good Wipes · It's That Simple</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Wellness House 2025 · Session 02 -->
-  <div class="sc" id="sc-wh-02">
-    <div class="sc__head" onclick="toggle('sc-wh-02')">
-      <div class="sc__icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <div class="sc__info">
-        <div class="sc__name">The power <em>of routine</em></div>
-        <div class="sc__sub">Wellness House 2025 · Austin, TX · Session 02</div>
-      </div>
-      <div class="sc__right">
-        <svg class="bird" viewBox="0 0 24 16" fill="var(--wh)" aria-hidden="true" style="width:20px;height:14px;flex-shrink:0;"><path d="M12 2C10 2 7.5 3 5.5 5.5C3.5 8 2.5 10.5 3 12.5C4.5 10.5 7 9 9.5 8.5C11 8 12 7.5 12 9C12 7.5 13 8 14.5 8.5C17 9 19.5 10.5 21 12.5C21.5 10.5 20.5 8 18.5 5.5C16.5 3 14 2 12 2Z"/></svg>
-        <svg class="sc__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
-      </div>
-    </div>
-    <div class="sc__body">
-      <div class="sc__inner">
-        <div class="video-frame"><div class="vf-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="rgba(123,170,212,0.4)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div></div>
-        <p style="margin-top:1rem;font-size:0.88rem;color:rgba(255,255,255,0.55);">WHOOP · HigherDOSE · Wellworthy</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Wellness House 2025 · Session 01 -->
-  <div class="sc" id="sc-wh-01">
-    <div class="sc__head" onclick="toggle('sc-wh-01')">
-      <div class="sc__icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <div class="sc__info">
-        <div class="sc__name">Founders rebuilding <em>health &amp; wellness</em></div>
-        <div class="sc__sub">Wellness House 2025 · Austin, TX · Session 01</div>
-      </div>
-      <div class="sc__right">
-        <svg class="bird" viewBox="0 0 24 16" fill="var(--wh)" aria-hidden="true" style="width:20px;height:14px;flex-shrink:0;"><path d="M12 2C10 2 7.5 3 5.5 5.5C3.5 8 2.5 10.5 3 12.5C4.5 10.5 7 9 9.5 8.5C11 8 12 7.5 12 9C12 7.5 13 8 14.5 8.5C17 9 19.5 10.5 21 12.5C21.5 10.5 20.5 8 18.5 5.5C16.5 3 14 2 12 2Z"/></svg>
-        <svg class="sc__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
-      </div>
-    </div>
-    <div class="sc__body">
-      <div class="sc__inner">
-        <div class="video-frame"><div class="vf-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="rgba(123,170,212,0.4)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div></div>
-        <p style="margin-top:1rem;font-size:0.88rem;color:rgba(255,255,255,0.55);">Tiny Health · Function · Throne Science</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Wellness House 2025 · Keynote -->
-  <div class="sc" id="sc-wh-kn">
-    <div class="sc__head" onclick="toggle('sc-wh-kn')">
-      <div class="sc__icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <div class="sc__info">
-        <div class="sc__name">Founder mode in <em>health &amp; wellness</em></div>
-        <div class="sc__sub">Wellness House 2025 · Opening Keynote · Greg LaVecchia, Bloom Nutrition</div>
-      </div>
-      <div class="sc__right">
-        <svg class="bird" viewBox="0 0 24 16" fill="var(--wh)" aria-hidden="true" style="width:20px;height:14px;flex-shrink:0;"><path d="M12 2C10 2 7.5 3 5.5 5.5C3.5 8 2.5 10.5 3 12.5C4.5 10.5 7 9 9.5 8.5C11 8 12 7.5 12 9C12 7.5 13 8 14.5 8.5C17 9 19.5 10.5 21 12.5C21.5 10.5 20.5 8 18.5 5.5C16.5 3 14 2 12 2Z"/></svg>
-        <svg class="sc__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
-      </div>
-    </div>
-    <div class="sc__body">
-      <div class="sc__inner">
-        <div class="video-frame"><div class="vf-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="rgba(123,170,212,0.4)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div></div>
-        <p style="margin-top:1rem;font-size:0.88rem;color:rgba(255,255,255,0.55);">Greg LaVecchia · Bloom Nutrition</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Catalyst NYC · Nov 2025 -->
-  <div class="sc" id="sc-cat-1">
-    <div class="sc__head" onclick="toggle('sc-cat-1')">
-      <div class="sc__icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <div class="sc__info">
-        <div class="sc__name">Capitalizing on the future of <em>wellness</em></div>
-        <div class="sc__sub">Catalyst NYC · Nov 10, 2025 · Soho House NYC</div>
-      </div>
-      <div class="sc__right">
-        <svg class="bird" viewBox="0 0 24 16" fill="var(--cat)" aria-hidden="true" style="width:20px;height:14px;flex-shrink:0;"><path d="M12 2C10 2 7.5 3 5.5 5.5C3.5 8 2.5 10.5 3 12.5C4.5 10.5 7 9 9.5 8.5C11 8 12 7.5 12 9C12 7.5 13 8 14.5 8.5C17 9 19.5 10.5 21 12.5C21.5 10.5 20.5 8 18.5 5.5C16.5 3 14 2 12 2Z"/></svg>
-        <svg class="sc__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
-      </div>
-    </div>
-    <div class="sc__body">
-      <div class="sc__inner">
-        <div class="video-frame"><div class="vf-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="rgba(212,149,106,0.4)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div></div>
-        <p style="margin-top:1rem;font-size:0.88rem;color:rgba(255,255,255,0.55);">Masa Chips · Caulipower · HYROX · Soho House NYC</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Catalyst NYC · Jul 2025 -->
-  <div class="sc" id="sc-cat-2">
-    <div class="sc__head" onclick="toggle('sc-cat-2')">
-      <div class="sc__icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <div class="sc__info">
-        <div class="sc__name">Cutting through <em>the noise</em></div>
-        <div class="sc__sub">Catalyst NYC · Jul 29, 2025</div>
-      </div>
-      <div class="sc__right">
-        <svg class="bird" viewBox="0 0 24 16" fill="var(--cat)" aria-hidden="true" style="width:20px;height:14px;flex-shrink:0;"><path d="M12 2C10 2 7.5 3 5.5 5.5C3.5 8 2.5 10.5 3 12.5C4.5 10.5 7 9 9.5 8.5C11 8 12 7.5 12 9C12 7.5 13 8 14.5 8.5C17 9 19.5 10.5 21 12.5C21.5 10.5 20.5 8 18.5 5.5C16.5 3 14 2 12 2Z"/></svg>
-        <svg class="sc__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
-      </div>
-    </div>
-    <div class="sc__body">
-      <div class="sc__inner">
-        <div class="video-frame"><div class="vf-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="rgba(212,149,106,0.4)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div></div>
-        <p style="margin-top:1rem;font-size:0.88rem;color:rgba(255,255,255,0.55);">Slate Milk · Othership · WHOOP</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Catalyst NYC · May 2025 -->
-  <div class="sc" id="sc-cat-3">
-    <div class="sc__head" onclick="toggle('sc-cat-3')">
-      <div class="sc__icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <div class="sc__info">
-        <div class="sc__name">Brand breakouts &amp; buyouts w/ <em>HelloFresh &amp; Daily Harvest</em></div>
-        <div class="sc__sub">Catalyst NYC · May 27, 2025</div>
-      </div>
-      <div class="sc__right">
-        <svg class="bird" viewBox="0 0 24 16" fill="var(--cat)" aria-hidden="true" style="width:20px;height:14px;flex-shrink:0;"><path d="M12 2C10 2 7.5 3 5.5 5.5C3.5 8 2.5 10.5 3 12.5C4.5 10.5 7 9 9.5 8.5C11 8 12 7.5 12 9C12 7.5 13 8 14.5 8.5C17 9 19.5 10.5 21 12.5C21.5 10.5 20.5 8 18.5 5.5C16.5 3 14 2 12 2Z"/></svg>
-        <svg class="sc__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
-      </div>
-    </div>
-    <div class="sc__body">
-      <div class="sc__inner">
-        <div class="video-frame"><div class="vf-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="rgba(212,149,106,0.4)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div></div>
-        <p style="margin-top:1rem;font-size:0.88rem;color:rgba(255,255,255,0.55);">HelloFresh · Daily Harvest · Poppi · Padel Haus</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Wellness Lounge · May 2026 -->
-  <div class="sc" id="sc-lounge-1">
-    <div class="sc__head" onclick="toggle('sc-lounge-1')">
-      <div class="sc__icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <div class="sc__info">
-        <div class="sc__name">The first <em>Wellness Lounge</em></div>
-        <div class="sc__sub">The Wellness Lounge · May 20, 2026 · Remedy Place Soho, NYC</div>
-      </div>
-      <div class="sc__right">
-        <div class="sc__badge live">New series</div>
-        <svg class="bird" viewBox="0 0 24 16" fill="var(--lounge)" aria-hidden="true" style="width:20px;height:14px;flex-shrink:0;"><path d="M12 2C10 2 7.5 3 5.5 5.5C3.5 8 2.5 10.5 3 12.5C4.5 10.5 7 9 9.5 8.5C11 8 12 7.5 12 9C12 7.5 13 8 14.5 8.5C17 9 19.5 10.5 21 12.5C21.5 10.5 20.5 8 18.5 5.5C16.5 3 14 2 12 2Z"/></svg>
-        <svg class="sc__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
-      </div>
-    </div>
-    <div class="sc__body">
-      <div class="sc__inner">
-        <div class="video-frame"><div class="vf-placeholder"><svg width="40" height="40" viewBox="0 0 24 24" fill="rgba(114,184,154,0.4)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div></div>
-        <p style="margin-top:1rem;font-size:0.88rem;color:rgba(255,255,255,0.55);">AG1 · Beekman 1802 · Evolv · Remedy Place Soho · 80+ brands</p>
-      </div>
-    </div>
-  </div>
-
 </div>
 
-<!-- ── CTA ───────────────────────────────────────────────────── -->
+<!-- ── CTA ── -->
 <section class="cta-section">
   <div class="wrap">
     <h2>Get the next one <em>in your inbox.</em></h2>
@@ -731,7 +411,7 @@
   </div>
 </section>
 
-<!-- ── Footer ────────────────────────────────────────────────── -->
+<!-- ── Footer ── -->
 <footer class="sp-footer">
   <div class="wrap">
     <a href="/" class="fl">
@@ -750,49 +430,32 @@
 </footer>
 
 <script>
-  var overlay = document.getElementById('drawerOverlay');
-  var drawer = document.getElementById('drawer');
-  var drawerContent = document.getElementById('drawerContent');
-  var drawerTitleShort = document.getElementById('drawerTitleShort');
-  var drawerFullLink = document.getElementById('drawerFullLink');
+  var overlay = document.getElementById('modalOverlay');
+  var modalTitle = document.getElementById('modalTitle');
+  var modalVideo = document.getElementById('modalVideo');
 
-  function toggle(id) {
-    document.getElementById(id).classList.toggle('open');
-  }
-
-  function openDrawer(url, title, brands) {
+  function openModal(title, embedSrc) {
     var tmp = document.createElement('div');
     tmp.innerHTML = title;
-    drawerTitleShort.textContent = tmp.textContent;
-    drawerFullLink.href = url;
-    drawerContent.innerHTML = '<div class="drawer-loading"><div class="drawer-spinner"></div><span>Loading…</span></div>';
+    modalTitle.textContent = tmp.textContent;
+    if (embedSrc) {
+      modalVideo.innerHTML = '<iframe src="' + embedSrc + '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+    } else {
+      modalVideo.innerHTML = '<div class="thumb-placeholder"><svg width="48" height="48" viewBox="0 0 24 24" fill="rgba(255,255,255,0.15)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>';
+    }
     overlay.classList.add('open');
-    drawer.classList.add('open');
     document.body.style.overflow = 'hidden';
-    fetch(url)
-      .then(function(r) { return r.text(); })
-      .then(function(html) {
-        var doc = new DOMParser().parseFromString(html, 'text/html');
-        ['nav', 'footer', '.nav', '.footer', '.sp-header', '.sp-footer'].forEach(function(sel) {
-          doc.querySelectorAll(sel).forEach(function(el) { el.remove(); });
-        });
-        var styles = Array.from(doc.querySelectorAll('style')).map(function(s) { return s.textContent; }).join('\n');
-        drawerContent.innerHTML = '<style>' + styles + '</style>' + doc.body.innerHTML;
-        drawerContent.scrollTop = 0;
-      })
-      .catch(function() {
-        drawerContent.innerHTML = '<div style="padding:48px 32px;text-align:center;color:rgba(255,255,255,.35);"><p style="margin-bottom:16px;font-size:14px;">Could not load content inline.</p><a href="' + url + '" style="color:var(--blue);font-size:13px;" target="_blank">Open full page →</a></div>';
-      });
   }
 
-  function closeDrawer() {
+  function closeModal(e) {
+    if (e && e.target !== overlay) return;
     overlay.classList.remove('open');
-    drawer.classList.remove('open');
     document.body.style.overflow = '';
+    modalVideo.innerHTML = '';
   }
 
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeDrawer();
+    if (e.key === 'Escape') { overlay.classList.remove('open'); document.body.style.overflow = ''; }
   });
 </script>
 </body>

@@ -1,75 +1,78 @@
-# Willpower Media Page — Sandbox
+# Willpower Media Archive
 
-This repo holds **one page**: the draft Media page for willpowerbrands.com, where we
-highlight panel recordings from events and the insights behind them.
+Every Willpower panel, recorded and unpacked. This repo holds the media archive page and
+the written breakdowns behind each session.
 
-It is a **sandbox, fully separate from the live website.** Edit freely here. Nothing you
-do can affect willpowerbrands.com. When Bill approves the page, he copies it into the real
-site and publishes it.
+**Repo:** https://github.com/joaniefelder/willpower-media-draft
 
----
+## Live site
 
-## What you edit
+Not deployed yet from this repo. Connect Netlify once and every push to `main` publishes
+automatically:
 
-- **The only file you touch is `index.html`.** That's the whole page.
-- Fonts, colors, and components are pulled **live from the real site**, so this page looks
-  exactly like willpowerbrands.com while you work.
-- The nav links at the top and bottom are **inert in this sandbox** (they point at real-site
-  pages that don't exist here). That's expected — they'll work once the page is on the real
-  site. Don't worry about them.
-- Every spot you should fill in is marked in the file with an `EDIT ME ▸` comment:
-  - the featured panel's video embed + insights
-  - each session card in the archive grid
+> **Deploy:** https://app.netlify.com/start/deploy?repository=https://github.com/joaniefelder/willpower-media-draft
 
-## Live preview
+`netlify.toml` is already set up (publish directory `.`, no build step), so accept the
+defaults. After the first deploy, put the real URL here:
 
-The page is live here (share this link with anyone):
+> **Live:** _(paste your Netlify URL after the first deploy)_
 
-> **https://willpower-media-draft.netlify.app**
+Note: the old `willpower-media-draft.netlify.app` is Bill's separate site. It has not been
+updated since June and does not contain any of this work. Ignore it.
 
-You can also preview locally without deploying — just open the file:
+## What is in here
+
+| Path | What it is |
+| --- | --- |
+| `index.html` | The archive page. Card grid, series legend, links into every breakdown. |
+| `articles/` | The written breakdowns, one file per session. |
+| `list-version.html` | Earlier list layout, kept for reference. Not linked from anywhere. |
+| `bill-version.html` | June 11 snapshot of the accordion layout, before it was flattened. |
+| `media.html` | Another early layout. Reference only. |
+| `world-of-sports-2026.html` | Standalone World of Sports page. |
+| `panel-*.html` | Standalone per-panel pages with their own `panel.css`. |
+| `WH Thumbnails/` | Event photography. |
+| `voice/about-bill.md` | The writing voice. Read it before drafting any copy. |
+
+## Editing
+
+Work in the browser with no setup by pressing `.` on the repo page, or go to
+https://github.dev/joaniefelder/willpower-media-draft
+
+Or locally:
+
 ```bash
-open index.html
-```
-
-### How your edits go live
-Once this repo is connected to Netlify (Site settings → Build & deploy → Link
-repository), **every push to `main` auto-publishes** to the URL above within ~30 seconds.
-Until then, a maintainer (Bill) publishes by running `./publish.sh`.
-
-## How to edit it with Claude Code
-
-```bash
-# one-time: clone this repo
-git clone https://github.com/billpower21/willpower-media-draft.git
+git clone https://github.com/joaniefelder/willpower-media-draft.git
 cd willpower-media-draft
-
-# each time you work:
-claude            # then tell it what to change, e.g.
-                  # "add a session card for the Catalyst NYC brand panel
-                  #  and embed this YouTube video: <link>"
-
-# save + publish your changes:
-git add -A && git commit -m "describe your change" && git push
+claude
 ```
 
-(Claude Code can run the git commands for you — just ask it to "commit and push.")
+Then commit and push. If Netlify is connected, that publishes it.
 
-## How a recording goes in
+## House rules
 
-To embed a YouTube video, replace the placeholder in `index.html` with:
-```html
-<iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Panel title"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen loading="lazy"></iframe>
-```
-The `VIDEO_ID` is the part after `watch?v=` in a YouTube link. Or just paste the link to
-Claude Code and ask it to embed it — it'll handle the markup.
+Read `AGENTS.md` before writing any copy. The two that get broken most:
 
----
+1. **No em dashes.** Anywhere. Use periods, commas, or parentheses.
+2. **Article headlines wrap to exactly three lines.** The headline column is 800px at 52px,
+   so three lines is roughly 80 to 95 characters. Check how it actually wraps before
+   calling it done.
 
-## When the page is ready (Bill only)
+Every takeaway needs a named speaker and a real number. No vague generalities, and nothing
+invented. If there is no recording or transcript for a session, it does not get a
+breakdown.
 
-The finished `index.html` gets copied into the real `willpowerbrands-website` repo as
-`media.html` (asset URLs switched back to root-relative `/assets/...`), then deployed. The
-page goes live at willpowerbrands.com/media.
+## Adding a session
+
+1. Copy an existing file in `articles/` as the template.
+2. Set the series tag, headline, deck, four metrics, video embed, and speaker list.
+3. Add a card to the grid in `index.html`, matching the surrounding markup. Set
+   `data-series` so it colour codes, and point `vc__read` at the new article.
+4. For the YouTube embed use `https://www.youtube.com/embed/VIDEO_ID`, and for the card
+   thumbnail `https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg`. `VIDEO_ID` is the
+   part after `watch?v=`.
+
+## Deploying by CLI instead
+
+`./publish.sh` pushes the current directory straight to Netlify. It needs the Netlify CLI
+authenticated on your machine, which is separate from GitHub access.
