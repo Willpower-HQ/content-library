@@ -5,20 +5,35 @@ the written breakdowns behind each session.
 
 **Repo:** https://github.com/Willpower-HQ/content-library
 
-## Live site
+## Deploying (Bill)
 
-Not deployed yet from this repo. Connect Netlify once and every push to `main` publishes
-automatically:
+This goes on Bill's Netlify. Two ways to do it, both already configured.
 
-> **Deploy:** https://app.netlify.com/start/deploy?repository=https://github.com/Willpower-HQ/content-library
+**One-off deploy.** `publish.sh` points at the existing site
+(`SITE_ID 4821bcdd-f799-4600-b025-b1fc59e42ac1`) and works from any clone. Needs the
+Netlify CLI authenticated:
 
-`netlify.toml` is already set up (publish directory `.`, no build step), so accept the
-defaults. After the first deploy, put the real URL here:
+```bash
+git clone https://github.com/Willpower-HQ/content-library.git
+cd content-library
+./publish.sh
+```
 
-> **Live:** _(paste your Netlify URL after the first deploy)_
+**Auto-deploy on every push.** Link this repo once in Netlify (Site settings, then Build
+and deploy, then Link repository), or use:
 
-Note: the old `willpower-media-draft.netlify.app` is Bill's separate site. It has not been
-updated since June and does not contain any of this work. Ignore it.
+> https://app.netlify.com/start/deploy?repository=https://github.com/Willpower-HQ/content-library
+
+`netlify.toml` is already set (publish directory `.`, no build step), so accept the
+defaults. After that, every push to `main` publishes in about 30 seconds.
+
+**Heads up before the first deploy.** `index.html` is no longer the old list page. It is
+now the archive grid, which links out to all nine breakdowns in `articles/`. Deploying
+replaces what is currently live at willpower-media-draft.netlify.app, which has not been
+updated since June and contains none of this work. That replacement is the point, but it
+is a visible change to the site.
+
+> **Live:** _(paste the URL after the first deploy)_
 
 ## What is in here
 
