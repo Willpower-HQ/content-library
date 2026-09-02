@@ -33,7 +33,10 @@ replaces what is currently live at willpower-media-draft.netlify.app, which has 
 updated since June and contains none of this work. That replacement is the point, but it
 is a visible change to the site.
 
-> **Live:** _(paste the URL after the first deploy)_
+> **Staging (GitHub Pages, auto-updates on every push):**
+> https://willpower-hq.github.io/content-library/
+
+> **Live (Bill's Netlify):** _(paste the URL after the first deploy)_
 
 ## What is in here
 
