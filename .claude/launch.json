@@ -2,9 +2,9 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "media-page",
+      "name": "willpower-static",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "3333"],
+      "runtimeArgs": ["-m", "http.server", "3333", "--directory", "/Users/joaniefelder/Downloads/PowerHouse/Willpower/willpower-media-draft"],
       "port": 3333
     }
   ]
