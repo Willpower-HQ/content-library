@@ -14,7 +14,6 @@
   <style>
     :root {
       --wh:     #7baad4;
-      --cat:    #d4956a;
       --lounge: #72b89a;
       --wos:    #a87dc4;
       --hps:    #c47a7a;
@@ -104,7 +103,6 @@
       height: 3px;
     }
     .vc[data-series="wh"]     .vc__thumb::after { background: var(--wh); }
-    .vc[data-series="cat"]    .vc__thumb::after { background: var(--cat); }
     .vc[data-series="lounge"] .vc__thumb::after { background: var(--lounge); }
     .vc[data-series="wos"]    .vc__thumb::after { background: var(--wos); }
     .vc[data-series="hps"]    .vc__thumb::after { background: var(--hps); }
@@ -133,7 +131,6 @@
       opacity: 1;
     }
     .vc[data-series="wh"] .vc__read { color: var(--wh); }
-    .vc[data-series="cat"] .vc__read { color: var(--cat); }
     .vc__read:hover { opacity: .7; }
 
 
@@ -247,7 +244,6 @@
     <span class="legend-label">Series</span>
     <div class="legend-items">
       <div class="legend-item"><span class="legend-dot" style="background:var(--wh)"></span>Wellness House</div>
-      <div class="legend-item"><span class="legend-dot" style="background:var(--cat)"></span>Catalyst</div>
       <div class="legend-item"><span class="legend-dot" style="background:var(--lounge)"></span>Wellness Lounge</div>
       <div class="legend-item"><span class="legend-dot" style="background:var(--wos)"></span>World of Sports</div>
       <div class="legend-item"><span class="legend-dot" style="background:var(--hps)"></span>Human Performance</div>
@@ -343,37 +339,16 @@
       <a class="vc__read" href="articles/panel-7.html" onclick="event.stopPropagation()">Read the breakdown &#8594;</a>
     </div>
 
-    <!-- Catalyst NYC · Nov 2025 -->
-    <div class="vc" data-series="cat" onclick="openModal('Capitalizing on the future of wellness', '')">
+    <!-- Wellness Lounge · Aug 2026 -->
+    <div class="vc" data-series="lounge" onclick="openModal('Buying attention vs earning it', 'https://www.youtube.com/embed/0lDcBnpIfuI')">
       <div class="vc__thumb">
-        <div class="thumb-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="rgba(212,149,106,0.3)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+        <img src="https://img.youtube.com/vi/0lDcBnpIfuI/maxresdefault.jpg" alt="Buying attention vs earning it" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
         <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
       </div>
-      <div class="vc__meta">Catalyst NYC · Nov 10, 2025</div>
-      <div class="vc__title">Capitalizing on the future of <em>wellness</em></div>
-      <div class="vc__brands">Masa Chips · Caulipower · HYROX · Soho House NYC</div>
-    </div>
-
-    <!-- Catalyst NYC · Jul 2025 -->
-    <div class="vc" data-series="cat" onclick="openModal('Cutting through the noise', '')">
-      <div class="vc__thumb">
-        <div class="thumb-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="rgba(212,149,106,0.3)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
-      </div>
-      <div class="vc__meta">Catalyst NYC · Jul 29, 2025</div>
-      <div class="vc__title">Cutting through <em>the noise</em></div>
-      <div class="vc__brands">Slate Milk · Othership · WHOOP</div>
-    </div>
-
-    <!-- Catalyst NYC · May 2025 -->
-    <div class="vc" data-series="cat" onclick="openModal('Brand breakouts &amp; buyouts', '')">
-      <div class="vc__thumb">
-        <div class="thumb-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="rgba(212,149,106,0.3)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
-      </div>
-      <div class="vc__meta">Catalyst NYC · May 27, 2025</div>
-      <div class="vc__title">Brand breakouts &amp; buyouts w/ <em>HelloFresh &amp; Daily Harvest</em></div>
-      <div class="vc__brands">HelloFresh · Daily Harvest · Poppi · Padel Haus</div>
+      <div class="vc__meta">The Wellness Lounge · Aug 19, 2026</div>
+      <div class="vc__title">Bandit Running · NY Knicks · Ultra</div>
+      <div class="vc__brands">Nick West · Toby Gimand · Ankur Goyal</div>
+      <a class="vc__read" href="articles/wellness-lounge-aug19.html" onclick="event.stopPropagation()">Read the breakdown &#8594;</a>
     </div>
 
     <!-- Wellness Lounge · May 2026 -->
@@ -388,16 +363,37 @@
       <a class="vc__read" href="articles/wh26-building-from-scratch.html" onclick="event.stopPropagation()">Read the breakdown &#8594;</a>
     </div>
 
-    <!-- Wellness Lounge · Aug 2026 -->
-    <div class="vc" data-series="lounge" onclick="openModal('Buying attention vs earning it', 'https://www.youtube.com/embed/0lDcBnpIfuI')">
+    <!-- Wellness Lounge · Nov 2025 -->
+    <div class="vc" data-series="lounge" onclick="openModal('Capitalizing on the future of wellness', '')">
       <div class="vc__thumb">
-        <img src="https://img.youtube.com/vi/0lDcBnpIfuI/maxresdefault.jpg" alt="Buying attention vs earning it" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div class="thumb-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="rgba(114,184,154,0.3)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
       </div>
-      <div class="vc__meta">The Wellness Lounge · Aug 19, 2026</div>
-      <div class="vc__title">Bandit Running · NY Knicks · Ultra</div>
-      <div class="vc__brands">Nick West · Toby Gimand · Ankur Goyal</div>
-      <a class="vc__read" href="articles/wellness-lounge-aug19.html" onclick="event.stopPropagation()">Read the breakdown &#8594;</a>
+      <div class="vc__meta">The Wellness Lounge · Nov 10, 2025</div>
+      <div class="vc__title">Capitalizing on the future of <em>wellness</em></div>
+      <div class="vc__brands">Masa Chips · Caulipower · HYROX · Soho House NYC</div>
+    </div>
+
+    <!-- Wellness Lounge · Jul 2025 -->
+    <div class="vc" data-series="lounge" onclick="openModal('Cutting through the noise', '')">
+      <div class="vc__thumb">
+        <div class="thumb-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="rgba(114,184,154,0.3)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      </div>
+      <div class="vc__meta">The Wellness Lounge · Jul 29, 2025</div>
+      <div class="vc__title">Cutting through <em>the noise</em></div>
+      <div class="vc__brands">Slate Milk · Othership · WHOOP</div>
+    </div>
+
+    <!-- Wellness Lounge · May 2025 -->
+    <div class="vc" data-series="lounge" onclick="openModal('Brand breakouts &amp; buyouts', '')">
+      <div class="vc__thumb">
+        <div class="thumb-placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="rgba(114,184,154,0.3)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="play-btn"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      </div>
+      <div class="vc__meta">The Wellness Lounge · May 27, 2025</div>
+      <div class="vc__title">Brand breakouts &amp; buyouts w/ <em>HelloFresh &amp; Daily Harvest</em></div>
+      <div class="vc__brands">HelloFresh · Daily Harvest · Poppi · Padel Haus</div>
     </div>
 
   </div>
