@@ -40,13 +40,33 @@
       text-transform: uppercase; color: var(--muted);
       white-space: nowrap; flex-shrink: 0;
     }
-    .legend-items { display: flex; align-items: center; gap: 0; flex: 1; justify-content: space-evenly; }
+    .legend-items { display: flex; align-items: center; gap: 6px; flex: 1; justify-content: flex-end; flex-wrap: wrap; }
     .legend-item {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 12px; color: var(--muted); white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: inherit; font-size: 12px; color: var(--muted); white-space: nowrap;
+      appearance: none; background: transparent; border: 1px solid transparent;
+      border-radius: 999px; padding: 6px 13px; cursor: pointer;
+      transition: background .15s ease, color .15s ease, border-color .15s ease, opacity .15s ease;
     }
+    .legend-item:hover:not(:disabled) { color: var(--white, #f0f0f0); background: rgba(255,255,255,.07); }
+    .legend-item:focus-visible { outline: 2px solid var(--pill, #7baad4); outline-offset: 2px; }
+    .legend-item[aria-pressed="true"] {
+      background: var(--pill); border-color: var(--pill); color: #0b0b10; font-weight: 700;
+    }
+    .legend-item[aria-pressed="true"] .legend-dot { background: rgba(0,0,0,.45) !important; }
+    .legend-item[aria-pressed="true"] .legend-count { color: #0b0b10; opacity: .65; }
+    .legend-item:disabled { opacity: .3; cursor: default; }
     .legend-dot {
       width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+    }
+    .legend-count {
+      font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .04em;
+      color: var(--muted); opacity: .8;
+    }
+    .vc[hidden] { display: none !important; }
+    .grid-empty {
+      grid-column: 1 / -1; text-align: center; padding: 64px 24px;
+      color: var(--muted); font-size: 14px;
     }
 
     /* ── Grid ── */
@@ -246,11 +266,12 @@
   <div class="legend-inner">
     <span class="legend-label">Series</span>
     <div class="legend-items">
-      <div class="legend-item"><span class="legend-dot" style="background:var(--wh)"></span>Wellness House</div>
-      <div class="legend-item"><span class="legend-dot" style="background:var(--cat)"></span>Catalyst Series</div>
-      <div class="legend-item"><span class="legend-dot" style="background:var(--lounge)"></span>Wellness Lounge</div>
-      <div class="legend-item"><span class="legend-dot" style="background:var(--wos)"></span>World of Sports</div>
-      <div class="legend-item"><span class="legend-dot" style="background:var(--hps)"></span>Human Performance</div>
+      <button class="legend-item" type="button" data-filter="all" style="--pill:var(--wh)" aria-pressed="true">All<i class="legend-count"></i></button>
+      <button class="legend-item" type="button" data-filter="wh" style="--pill:var(--wh)" aria-pressed="false"><span class="legend-dot" style="background:var(--wh)"></span>Wellness House<i class="legend-count"></i></button>
+      <button class="legend-item" type="button" data-filter="cat" style="--pill:var(--cat)" aria-pressed="false"><span class="legend-dot" style="background:var(--cat)"></span>Catalyst Series<i class="legend-count"></i></button>
+      <button class="legend-item" type="button" data-filter="lounge" style="--pill:var(--lounge)" aria-pressed="false"><span class="legend-dot" style="background:var(--lounge)"></span>Wellness Lounge<i class="legend-count"></i></button>
+      <button class="legend-item" type="button" data-filter="wos" style="--pill:var(--wos)" aria-pressed="false"><span class="legend-dot" style="background:var(--wos)"></span>World of Sports<i class="legend-count"></i></button>
+      <button class="legend-item" type="button" data-filter="hps" style="--pill:var(--hps)" aria-pressed="false"><span class="legend-dot" style="background:var(--hps)"></span>Human Performance<i class="legend-count"></i></button>
     </div>
   </div>
 </div>
@@ -258,6 +279,8 @@
 <!-- ── Grid ── -->
 <div class="grid-wrap">
   <div class="video-grid" id="videoGrid">
+
+    <p class="grid-empty" id="gridEmpty" hidden>Nothing published in this series yet.</p>
 
     <!-- Wellness House 2025 · Keynote -->
     <div class="vc" data-series="wh" onclick="openModal('Founder mode in health &amp; wellness', 'https://www.youtube.com/embed/JLt_e3vAUzs')">
@@ -485,6 +508,60 @@
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') { overlay.classList.remove('open'); document.body.style.overflow = ''; }
   });
+
+  // ── Series filter ──
+  (function () {
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.vc'));
+    var btns  = Array.prototype.slice.call(document.querySelectorAll('.legend-item'));
+    var empty = document.getElementById('gridEmpty');
+
+    // counts come from the cards themselves, so adding a card needs no JS edit
+    var counts = {};
+    cards.forEach(function (c) {
+      var k = c.getAttribute('data-series');
+      counts[k] = (counts[k] || 0) + 1;
+    });
+
+    btns.forEach(function (b) {
+      var f = b.getAttribute('data-filter');
+      var n = f === 'all' ? cards.length : (counts[f] || 0);
+      var tag = b.querySelector('.legend-count');
+      if (tag) tag.textContent = n ? '(' + n + ')' : '';
+      if (!n) {
+        b.disabled = true;
+        b.title = 'Nothing published in this series yet';
+      }
+    });
+
+    function apply(f, push) {
+      cards.forEach(function (c) {
+        c.hidden = !(f === 'all' || c.getAttribute('data-series') === f);
+      });
+      btns.forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.getAttribute('data-filter') === f));
+      });
+      if (empty) empty.hidden = cards.some(function (c) { return !c.hidden; });
+      if (push) {
+        try {
+          history.replaceState(null, '', f === 'all' ? location.pathname : '#' + f);
+        } catch (err) { /* file:// */ }
+      }
+    }
+
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (b.disabled) return;
+        apply(b.getAttribute('data-filter'), true);
+      });
+    });
+
+    // deep link: /#cat opens straight into that series
+    var want = (location.hash || '').replace('#', '');
+    var ok = btns.some(function (b) {
+      return b.getAttribute('data-filter') === want && !b.disabled;
+    });
+    apply(ok ? want : 'all', false);
+  })();
 </script>
 </body>
 </html>
