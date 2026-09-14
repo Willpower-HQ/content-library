@@ -21,9 +21,14 @@
     .article-body { padding-bottom: 80px; }
     .article-body h2 { font-size: 22px; font-weight: 800; margin: 48px 0 16px; letter-spacing: -.01em; color: var(--white, #f0f0f0); }
     .article-body p { font-size: 16px; line-height: 1.75; color: var(--muted, #aaa); margin: 0 0 20px; }
-    .pull-quote { border-left: 4px solid var(--accent); padding: 16px 24px; margin: 32px 0; background: var(--accent-light); }
-    .pull-quote p { font-size: 18px; font-weight: 600; font-style: italic; color: var(--white, #eee); margin: 0 0 8px; }
-    .pull-quote cite { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .pull-quote { position: relative; border: 0; border-left: 3px solid var(--accent); padding: 8px 0 8px 34px; margin: 52px 0; background: none; }
+    .pull-quote::before { content: '\201C'; position: absolute; left: 16px; top: 26px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 96px; line-height: 0; color: var(--accent); opacity: .22; }
+    .pull-quote p { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.32; font-weight: 700; font-style: normal; letter-spacing: -.01em; color: var(--white, #f2f2f2); margin: 0 0 14px; max-width: 900px; }
+    .pull-quote cite { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .stat { color: var(--accent); font-weight: 700; }
+    .read-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,.06); z-index: 999; }
+    .read-progress i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .08s linear; }
+    .article-body > h2:first-of-type + p { font-size: 20px; line-height: 1.65; color: var(--white, #ddd); font-weight: 500; }
     .video-wrap { aspect-ratio: 16/9; background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.4); margin: 32px 0; }
     .video-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
     .speaker-list { margin: 0 0 40px; padding: 20px 24px; border: 1px solid rgba(255,255,255,.1); border-radius: 10px; }
@@ -42,6 +47,7 @@
   </style>
 </head>
 <body>
+  <div class="read-progress"><i></i></div>
   <div class="wrap">
     <a href="../index.html" class="article-back">&#8592; Back to Media</a>
 
@@ -76,9 +82,9 @@
 
         <h2>The 10 years everyone skips</h2>
         <p>People look at Bloom and see a two year overnight success. Energy drink brand, Gen Z marketing, TikTok machine.</p>
-        <p>They miss the 10 years underneath it.</p>
-        <p>Greg LaVecchia and his wife Mari started by posting her fitness transformation on Instagram in 2018. Then they ran paid ads on it.</p>
-        <p>In 2018! When everyone else was handing coupon codes to Gymshark and waiting on the algorithm.</p>
+        <p>They miss the <b class="stat">10 years</b> underneath it.</p>
+        <p>Greg LaVecchia and his wife Mari started by posting her fitness transformation on Instagram in <b class="stat">2018</b>. Then they ran paid ads on it.</p>
+        <p>In <b class="stat">2018</b>! When everyone else was handing coupon codes to Gymshark and waiting on the algorithm.</p>
         <p>Treating your personal brand like a business was taboo then. He did it anyway, and every flashy thing since sits on that one call.</p>
 
 
@@ -98,26 +104,31 @@
         <p>Athletic Greens pays Joe Rogan to explain what a greens powder even is. Red Bull sends a guy to space to build the category.</p>
         <p>When they finish, Bloom shows up at the same retailers at half the price, tasting better, formulated better.</p>
         <p>He put it flat: "I love saturation because I hate spending money on educating people."</p>
-        <p>His model is the Ring doorbell. That founder did not invent the doorbell camera. He made the existing thing 10x better. Whole play.</p>
+        <p>His model is the Ring doorbell. That founder did not invent the doorbell camera. He made the existing thing <b class="stat">10</b>x better. Whole play.</p>
+
+        <figure class="fig">
+          <img src="img/keynote-3.jpg" alt="Wellness House 2026, opening keynote." loading="lazy" />
+          <figcaption>Wellness House 2026, opening keynote.</figcaption>
+        </figure>
 
         <h2>Move five times in five years if that is what it takes</h2>
         <p>Philadelphia. New York. Boulder. Brooklyn. Los Angeles. Now Austin.</p>
-        <p>Every move was on purpose. Boulder was a year and a half of seven day weeks to get away from hometown distractions. LA was the influencer hub in 2020.</p>
-        <p>Austin, in his words, is the CPG entrepreneurship hub of America in 2026.</p>
+        <p>Every move was on purpose. Boulder was a year and a half of seven day weeks to get away from hometown distractions. LA was the influencer hub in <b class="stat">2020</b>.</p>
+        <p>Austin, in his words, is the CPG entrepreneurship hub of America in <b class="stat">2026</b>.</p>
         <p>Here is the advantage, and it is almost unfair. Most of his competitors will not move, because moving is hard.</p>
 
         <h2>100 SKUs, two goals, always</h2>
-        <p>Someone in the room pushed him on it. You preach focus and you run over 100 SKUs. How does that add up?</p>
+        <p>Someone in the room pushed him on it. You preach focus and you run over <b class="stat">100 SKUs</b>. How does that add up?</p>
         <p>Most of those are flavor variants. Inside the actual business he works two things at a time.</p>
         <p>Right now: energy and soda. That is it.</p>
-        <p>"I am 100% in Bloom for 10 years straight. I do not invest in other brands. I don't run other brands. Focus kills and that is what has let us win."</p>
+        <p>"I am <b class="stat">100%</b> in Bloom for <b class="stat">10 years</b> straight. I do not invest in other brands. I don't run other brands. Focus kills and that is what has let us win."</p>
 
         <div class="pull-quote">
           <p>"I call them tsunamis. Very loud moments instead of peanut butter spread."</p>
           <cite>Greg LaVecchia, Co-founder, Bloom</cite>
         </div>
 
-        <p>When Bloom launched on Amazon they bought the front page for 24 hours. When they went into Target the goal was turning the entire Target website green.</p>
+        <p>When Bloom launched on Amazon they bought the front page for <b class="stat">24</b> hours. When they went into Target the goal was turning the entire Target website green.</p>
         <p>Pick one channel. Concentrate everything. Take it over. Move to the next.</p>
 
 
@@ -130,7 +141,7 @@
         <p>Bloom's top two pre-workout flavors six years ago were Glacier Crush and Crisp Apple.</p>
         <p>Today their top two energy flavors are Glacier Crush and Crisp Apple.</p>
         <p>Same two. Six years apart. Data kept from a product line they do not even sell any more.</p>
-        <p>You connect the dots looking backward. The pre-workout company was the research, and the two year overnight success is a 10 year community-building career finally paying out.</p>
+        <p>You connect the dots looking backward. The pre-workout company was the research, and the two year overnight success is a <b class="stat">10</b> year community-building career finally paying out.</p>
 
         <h2>How Bloom got into Target without the pitch</h2>
         <p>Old way to pitch Target: buy billboards near the Minneapolis HQ so buyers see you on the drive in.</p>
@@ -145,9 +156,14 @@
 
         <h2>What Greg is watching right now</h2>
         <p>Three things.</p>
-        <p>Retail revenue thresholds falling (Target used to want $30M before a meeting, he thinks it is closer to $10M or under now). TikTok Shop still hot. GLP-1s still reshaping what people want from functional products.</p>
+        <p>Retail revenue thresholds falling (Target used to want <b class="stat">$30M</b> before a meeting, he thinks it is closer to <b class="stat">$10M</b> or under now). TikTok Shop still hot. GLP-1s still reshaping what people want from functional products.</p>
         <p>Asked for one growth hack, he said surround yourself with people younger than you.</p>
-        <p>"They know more than me. I'm 30. I'm already an uncle now." The 20 year olds in his network are already millionaires building things he cannot predict. That is the point.</p>
+        <p>"They know more than me. I'm 30. I'm already an uncle now." The <b class="stat">20</b> year olds in his network are already millionaires building things he cannot predict. That is the point.</p>
+
+        <figure class="fig">
+          <img src="img/keynote-2.jpg" alt="Wellness House 2026, opening keynote." loading="lazy" />
+          <figcaption>Wellness House 2026, opening keynote.</figcaption>
+        </figure>
 
         <h2>The only edge that held for 10 years</h2>
         <p>"To win the game, you just need to stay in the game."</p>
@@ -156,15 +172,28 @@
 
         <h2>What to take home</h2>
         <ul class="takeaway-list">
-          <li>Greg scaled D2C to $25M on Shopify, then pointed his whole email and SMS list at Amazon. He gave up the D2C community to own the channel where beverages actually move. Know your lane.</li>
+          <li>Greg scaled D2C to <b class="stat">$25M</b> on Shopify, then pointed his whole email and SMS list at Amazon. He gave up the D2C community to own the channel where beverages actually move. Know your lane.</li>
           <li>Moonshots only. First retailer was a nationwide Target launch. "We only take large swings" is the literal strategy.</li>
           <li>The influencer arbitrage: find who the buyers follow, hire those creators, then send the email. You get emotional buy-in before the revenue justifies it.</li>
           <li>Concentrate the budget. One channel, everything into it, create the moment, move. Peanut butter across six channels is six mediocre campaigns.</li>
           <li>Brand power means never starting from zero. Pre-workout to greens to energy to soda, community intact, because the brand carried every time.</li>
-          <li>The 10 years is the story. Everyone wants the two year version, and the room that gets you through year six is the one worth paying for. Growth Through Community.</li>
+          <li>The <b class="stat">10 years</b> is the story. Everyone wants the two year version, and the room that gets you through year six is the one worth paying for. Growth Through Community.</li>
         </ul>
 
     </div>
   </div>
+<script>
+  (function () {
+    var bar = document.querySelector('.read-progress i');
+    if (!bar) return;
+    function tick() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick);
+    tick();
+  })();
+</script>
 </body>
 </html>

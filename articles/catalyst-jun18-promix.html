@@ -6,7 +6,7 @@
   <title>Catalyst Series: Customer Centric Scaling with Promix | Willpower</title>
   <link rel="stylesheet" href="https://starlit-crostata-9f186f.netlify.app/assets/subpage.css" />
   <style>
-    :root { --accent: #7baad4; --accent-light: rgba(123,170,212,0.10); }
+    :root { --accent: #d4956a; --accent-light: rgba(212,149,106,0.12); }
     body { background: var(--color-bg); }
     .article-back { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin: 32px 0 0 0; }
     .article-back:hover { opacity: .7; }
@@ -21,9 +21,14 @@
     .article-body { padding-bottom: 80px; }
     .article-body h2 { font-size: 22px; font-weight: 800; margin: 48px 0 16px; letter-spacing: -.01em; color: var(--white, #f0f0f0); }
     .article-body p { font-size: 16px; line-height: 1.75; color: var(--muted, #aaa); margin: 0 0 20px; }
-    .pull-quote { border-left: 4px solid var(--accent); padding: 16px 24px; margin: 32px 0; background: var(--accent-light); }
-    .pull-quote p { font-size: 18px; font-weight: 600; font-style: italic; color: var(--white, #eee); margin: 0 0 8px; }
-    .pull-quote cite { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .pull-quote { position: relative; border: 0; border-left: 3px solid var(--accent); padding: 8px 0 8px 34px; margin: 52px 0; background: none; }
+    .pull-quote::before { content: '\201C'; position: absolute; left: 16px; top: 26px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 96px; line-height: 0; color: var(--accent); opacity: .22; }
+    .pull-quote p { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.32; font-weight: 700; font-style: normal; letter-spacing: -.01em; color: var(--white, #f2f2f2); margin: 0 0 14px; max-width: 900px; }
+    .pull-quote cite { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .stat { color: var(--accent); font-weight: 700; }
+    .read-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,.06); z-index: 999; }
+    .read-progress i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .08s linear; }
+    .article-body > h2:first-of-type + p { font-size: 20px; line-height: 1.65; color: var(--white, #ddd); font-weight: 500; }
     .video-wrap { aspect-ratio: 16/9; background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.4); margin: 32px 0; }
     .video-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
     .speaker-list { margin: 0 0 40px; padding: 20px 24px; border: 1px solid rgba(255,255,255,.1); border-radius: 10px; }
@@ -42,6 +47,7 @@
   </style>
 </head>
 <body>
+  <div class="read-progress"><i></i></div>
   <div class="wrap">
     <a href="../index.html" class="article-back">&#8592; Back to Media</a>
 
@@ -78,13 +84,13 @@
         <p>So he started making his own. Then he made it for his teammates.</p>
         <p>His teammates turned pro. Professional mix. Promix.</p>
         <p>That is the whole origin, and it is a lot less romantic than people expect. Pre-med, food science, exercise physiology, registered dietitian, ten years as a trainer in New York.</p>
-        <p>"My dream was if I can make products I like and I can make 50K a year, then kind of 50K plus any type of salary, I'm gonna be fine, especially in Gainesville."</p>
+        <p>"My dream was if I can make products I like and I can make <b class="stat">50</b>K a year, then kind of <b class="stat">50</b>K plus any type of salary, I'm gonna be fine, especially in Gainesville."</p>
         <p>He set up his own production facility because he did not know any better. Built the website. Did the fulfillment. All of it.</p>
         <p>He says that is exactly why he can hire and scale now. You cannot manage what you have never done.</p>
 
 
         <h2>GNC on one side, birdseed on the other</h2>
-        <p>Picture the supplement aisle in 2013.</p>
+        <p>Picture the supplement aisle in <b class="stat">2013</b>.</p>
         <p>"What was available was basically GNC, mega-muscle, super artificial and synthetic, and then you had what I would call bird seed in the natural health food store."</p>
         <p>Enormous white space in the middle. That gap is the entire company.</p>
         <p>He started with protein because you cannot carry a piece of chicken in your bag all day. Grass-fed whey, when that was still a new idea. Then organic pea protein from Canadian peas for people who did not want dairy.</p>
@@ -92,9 +98,14 @@
 
         <h2>He is building for the meaty 40%</h2>
         <p>This is the sharpest thing he said all night, and almost nobody frames it this way.</p>
-        <p>He is not chasing the 1%. Those people already have a personal trainer, he serviced exactly that clientele in New York for ten years.</p>
-        <p>"What I really wanted to hit was kind of the meaty 40% of the market that wants to kind of invest in their health, but they're not trying to jump this huge chasm to like super organic and everything."</p>
+        <p>He is not chasing the <b class="stat">1%</b>. Those people already have a personal trainer, he serviced exactly that clientele in New York for ten years.</p>
+        <p>"What I really wanted to hit was kind of the meaty <b class="stat">40%</b> of the market that wants to kind of invest in their health, but they're not trying to jump this huge chasm to like super organic and everything."</p>
         <p>Which is why taste is a formulation requirement, not a nice-to-have. The best compliment he gets is that it tastes good and you can still tell it is healthy.</p>
+
+        <figure class="fig">
+          <img src="img/jun18-promix-3.jpg" alt="Catalyst Series, The Malin, Austin." loading="lazy" />
+          <figcaption>Catalyst Series, The Malin, Austin.</figcaption>
+        </figure>
 
         <h2>The products he refuses to make</h2>
         <p>Ten years ago he looked hard at colostrum, back when it was very, very niche. The studies said you need a big dose, the cost made that dose impossible, so he passed.</p>
@@ -104,7 +115,7 @@
         <p>A filter that only says yes is a wish list.</p>
 
         <h2>One channel, all the way down</h2>
-        <p>One of his advisers spent years at VaynerMedia and has watched brands at $400M, $500M and up, so he has seen where growth goes wrong.</p>
+        <p>One of his advisers spent years at VaynerMedia and has watched brands at <b class="stat">$400M</b>, <b class="stat">$500M</b> and up, so he has seen where growth goes wrong.</p>
         <p>His question landed hard.</p>
 
         <div class="pull-quote">
@@ -140,8 +151,13 @@
           <cite>Albert Matheny, Founder, Promix Nutrition</cite>
         </div>
 
-        <p>And on minimums: when you are small the MOQ is 20,000 units. "That can really F you up." Find someone who will make a few hundred first.</p>
+        <p>And on minimums: when you are small the MOQ is <b class="stat">20,000</b> units. "That can really F you up." Find someone who will make a few hundred first.</p>
         <p>His bars are the proof. He turned a Rice Krispie treat over in the gym, thought about it, and built the puff bar. It sat there for three or four years. When the business finally grew, people started telling him they loved his new bars. "I've been dying on these bars for two years, no one knew about them."</p>
+
+        <figure class="fig">
+          <img src="img/jun18-promix-2.jpg" alt="Catalyst Series, The Malin, Austin." loading="lazy" />
+          <figcaption>Catalyst Series, The Malin, Austin.</figcaption>
+        </figure>
 
         <h2>13 people, and everybody knows whose job it is</h2>
         <p>Team of 13. He is deliberate about that.</p>
@@ -160,16 +176,29 @@
 
         <h2>What to take home</h2>
         <ul class="takeaway-list">
-          <li>The meaty 40% is a positioning tool you can use tomorrow. The 1% already has a trainer and a coach. Build for the people trying to get healthier without rebuilding their whole life.</li>
+          <li>The meaty <b class="stat">40%</b> is a positioning tool you can use tomorrow. The <b class="stat">1%</b> already has a trainer and a coach. Build for the people trying to get healthier without rebuilding their whole life.</li>
           <li>Write down the products you will refuse to make. Colostrum and gummies would both sell for Promix, and both are still a no. A filter that never rejects anything is not a filter.</li>
           <li>Nate's one channel question is worth asking in your next meeting. Before you add a platform, prove you have exhausted the one already working.</li>
           <li>Retail bar: wait until half the room knows your name. Otherwise you are funding awareness at the most expensive counter in the building.</li>
           <li>Separate the unforced errors from the real ones. Out of stock is preventable, and on Amazon the algorithm makes you pay twice.</li>
           <li>Hold hands before you get married. Contract with someone before you hire them, and never hire on "eh."</li>
-          <li>Ten years bootstrapped, 13 people, first order profitable, and he still formulates every product himself. That is the unsexy version, and it is the one that lasted. Growth Through Community.</li>
+          <li>Ten years bootstrapped, <b class="stat">13 people</b>, first order profitable, and he still formulates every product himself. That is the unsexy version, and it is the one that lasted. Growth Through Community.</li>
         </ul>
 
     </div>
   </div>
+<script>
+  (function () {
+    var bar = document.querySelector('.read-progress i');
+    if (!bar) return;
+    function tick() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick);
+    tick();
+  })();
+</script>
 </body>
 </html>

@@ -21,9 +21,14 @@
     .article-body { padding-bottom: 80px; }
     .article-body h2 { font-size: 22px; font-weight: 800; margin: 48px 0 16px; letter-spacing: -.01em; color: var(--white, #f0f0f0); }
     .article-body p { font-size: 16px; line-height: 1.75; color: var(--muted, #aaa); margin: 0 0 20px; }
-    .pull-quote { border-left: 4px solid var(--accent); padding: 16px 24px; margin: 32px 0; background: var(--accent-light); }
-    .pull-quote p { font-size: 18px; font-weight: 600; font-style: italic; color: var(--white, #eee); margin: 0 0 8px; }
-    .pull-quote cite { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .pull-quote { position: relative; border: 0; border-left: 3px solid var(--accent); padding: 8px 0 8px 34px; margin: 52px 0; background: none; }
+    .pull-quote::before { content: '\201C'; position: absolute; left: 16px; top: 26px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 96px; line-height: 0; color: var(--accent); opacity: .22; }
+    .pull-quote p { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.32; font-weight: 700; font-style: normal; letter-spacing: -.01em; color: var(--white, #f2f2f2); margin: 0 0 14px; max-width: 900px; }
+    .pull-quote cite { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .stat { color: var(--accent); font-weight: 700; }
+    .read-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,.06); z-index: 999; }
+    .read-progress i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .08s linear; }
+    .article-body > h2:first-of-type + p { font-size: 20px; line-height: 1.65; color: var(--white, #ddd); font-weight: 500; }
     .video-wrap { aspect-ratio: 16/9; background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.4); margin: 32px 0; }
     .video-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
     .speaker-list { margin: 0 0 40px; padding: 20px 24px; border: 1px solid rgba(255,255,255,.1); border-radius: 10px; }
@@ -42,6 +47,7 @@
   </style>
 </head>
 <body>
+  <div class="read-progress"><i></i></div>
   <div class="wrap">
     <a href="../index.html" class="article-back">&#8592; Back to Media</a>
 
@@ -77,14 +83,14 @@
         <h2>Six months in, already in court</h2>
         <p>Sam Nebel co-founded goodwipes and was six months in when a competitor came at them with an IP lawsuit.</p>
         <p>An actual lawsuit, filed.</p>
-        <p>12.5 years later goodwipes is in stores across the country and Sam is sitting on a Willpower panel telling the room about it.</p>
+        <p><b class="stat">12.5 years</b> later goodwipes is in stores across the country and Sam is sitting on a Willpower panel telling the room about it.</p>
         <p>The lawsuit did not kill them. It introduced him early to the thing every long-haul founder learns, which is that a version of this is always waiting. The only question is whether you are still standing when it passes.</p>
-        <p>"Every year is a new experience." That is his whole thesis on what 12 plus years actually looks like. The lawsuit was year one.</p>
+        <p>"Every year is a new experience." That is his whole thesis on what <b class="stat">12</b> plus years actually looks like. The lawsuit was year one.</p>
 
 
         <h2>The Sri Lanka call</h2>
-        <p>Hyla Nayeri built 437 and came one phone call away from not having it any more.</p>
-        <p>Her entire production sat in Sri Lanka. The economy collapsed in 2022.</p>
+        <p>Hyla Nayeri built <b class="stat">437</b> and came one phone call away from not having it any more.</p>
+        <p>Her entire production sat in Sri Lanka. The economy collapsed in <b class="stat">2022</b>.</p>
         <p>She picked up the phone not knowing if the factory was running, if the people she worked with still had jobs, or if her inventory existed.</p>
         <p>The call went through. The factory was up. She shipped.</p>
         <p>Every founder talks about resilience like it is a personality trait. Her version is sharper: sometimes the whole business hangs on one call going a certain way, and you either make it or you do not.</p>
@@ -95,8 +101,13 @@
           <cite>Hyla Nayeri, Co-Founder &amp; Co-CEO, 437</cite>
         </div>
 
+        <figure class="fig">
+          <img src="img/panel-3-3.jpg" alt="Wellness House 2026, Panel 3." loading="lazy" />
+          <figcaption>Wellness House 2026, Panel 3.</figcaption>
+        </figure>
+
         <h2>Three years of a four day week, no investors to argue with</h2>
-        <p>437 has run a four day work week for three straight years.</p>
+        <p><b class="stat">437</b> has run a four day work week for three straight years.</p>
         <p>No investor pressure to reverse it. No board asking for productivity data.</p>
         <p>Hyla built the company without outside capital, so she runs it how she likes. The four day week was a decision about what kind of company she wanted to lead, and it bought her retention, morale, and a team that wants to be there.</p>
         <p>The read for founders is uncomfortable. The companies with the most freedom to build their own way are often the ones who never took the money. Slower access to capital, total control of how the place operates.</p>
@@ -108,9 +119,9 @@
         </figure>
 
         <h2>Porta Palace turned into a marketing strategy by accident</h2>
-        <p>Bryan Guadagno at It's That Simple has 10,000 grocery locations and a thing called Porta Palace.</p>
+        <p>Bryan Guadagno at It's That Simple has <b class="stat">10,000</b> grocery locations and a thing called Porta Palace.</p>
         <p>He did not design it as guerrilla marketing. It became one.</p>
-        <p>A mobile setup that hits 15 to 20 events a year and turns any space into a brand experience. It makes content. It makes relationships with people who turn into long term advocates.</p>
+        <p>A mobile setup that hits <b class="stat">15</b> to <b class="stat">20</b> events a year and turns any space into a brand experience. It makes content. It makes relationships with people who turn into long term advocates.</p>
         <p>At their distribution scale they need both engines. The stores buy them passive availability. Porta Palace buys them people who actually talk.</p>
 
         <div class="pull-quote">
@@ -122,17 +133,22 @@
         <p>Brian's sharpest minute of the panel. Every business has a lane, and the trouble starts when you chase things outside it.</p>
         <p>It's That Simple is built for grocery retail. When something shows up that looks like a fast win and drags them out of that lane, the answer is no.</p>
         <p>"Every opportunity can look good on paper. Most of them aren't right for your business."</p>
-        <p>Sam's version after 12.5 years: the clearest sign a business is drifting is founders taking meetings they already know they should skip. The distraction is not the problem. The willingness to be distracted is.</p>
+        <p>Sam's version after <b class="stat">12.5 years</b>: the clearest sign a business is drifting is founders taking meetings they already know they should skip. The distraction is not the problem. The willingness to be distracted is.</p>
 
         <h2>What creative control actually cost Hyla</h2>
-        <p>Early 437 made product and marketing calls designed to please as many people as possible. Safe colors. Styles that could not offend. Content nobody would argue with.</p>
+        <p>Early <b class="stat">437</b> made product and marketing calls designed to please as many people as possible. Safe colors. Styles that could not offend. Content nobody would argue with.</p>
         <p>It sort of worked. Growth was slow and the brand looked like a dozen other activewear companies.</p>
         <p>Taking creative control back meant making calls that would lose customers on purpose. Bolder designs, a specific aesthetic, a clear point of view on who this is for right now.</p>
         <p>The people who left got replaced by people who stayed far longer and turned into advocates.</p>
 
+        <figure class="fig">
+          <img src="img/panel-3-2.jpg" alt="Wellness House 2026, Panel 3." loading="lazy" />
+          <figcaption>Wellness House 2026, Panel 3.</figcaption>
+        </figure>
+
         <h2>What to take home</h2>
         <ul class="takeaway-list">
-          <li>Sam is 12.5 years in and the lawsuit was year one. If you are in year one of something brutal, the only data point that matters is whether you are standing in year 12.</li>
+          <li>Sam is <b class="stat">12.5 years</b> in and the lawsuit was year one. If you are in year one of something brutal, the only data point that matters is whether you are standing in year 12.</li>
           <li>Hyla's creative control pivot improved retention among the customers who stayed. A brand that means something specific is worth more to the right people, and that math compounds.</li>
           <li>Brian's lane discipline is a real framework. Write down what your business is optimized for, then test every opportunity against it.</li>
           <li>Three consecutive years of a four day week with no reversion. Structural freedom usually belongs to the founders who never took outside money.</li>
@@ -141,5 +157,18 @@
 
     </div>
   </div>
+<script>
+  (function () {
+    var bar = document.querySelector('.read-progress i');
+    if (!bar) return;
+    function tick() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick);
+    tick();
+  })();
+</script>
 </body>
 </html>

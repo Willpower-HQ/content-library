@@ -21,9 +21,14 @@
     .article-body { padding-bottom: 80px; }
     .article-body h2 { font-size: 22px; font-weight: 800; margin: 48px 0 16px; letter-spacing: -.01em; color: var(--white, #f0f0f0); }
     .article-body p { font-size: 16px; line-height: 1.75; color: var(--muted, #aaa); margin: 0 0 20px; }
-    .pull-quote { border-left: 4px solid var(--accent); padding: 16px 24px; margin: 32px 0; background: var(--accent-light); }
-    .pull-quote p { font-size: 18px; font-weight: 600; font-style: italic; color: var(--white, #eee); margin: 0 0 8px; }
-    .pull-quote cite { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .pull-quote { position: relative; border: 0; border-left: 3px solid var(--accent); padding: 8px 0 8px 34px; margin: 52px 0; background: none; }
+    .pull-quote::before { content: '\201C'; position: absolute; left: 16px; top: 26px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 96px; line-height: 0; color: var(--accent); opacity: .22; }
+    .pull-quote p { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.32; font-weight: 700; font-style: normal; letter-spacing: -.01em; color: var(--white, #f2f2f2); margin: 0 0 14px; max-width: 900px; }
+    .pull-quote cite { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .stat { color: var(--accent); font-weight: 700; }
+    .read-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,.06); z-index: 999; }
+    .read-progress i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .08s linear; }
+    .article-body > h2:first-of-type + p { font-size: 20px; line-height: 1.65; color: var(--white, #ddd); font-weight: 500; }
     .video-wrap { aspect-ratio: 16/9; background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.4); margin: 32px 0; }
     .video-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
     .speaker-list { margin: 0 0 40px; padding: 20px 24px; border: 1px solid rgba(255,255,255,.1); border-radius: 10px; }
@@ -42,6 +47,7 @@
   </style>
 </head>
 <body>
+  <div class="read-progress"><i></i></div>
   <div class="wrap">
     <a href="../index.html" class="article-back">&#8592; Back to Media</a>
 
@@ -75,9 +81,9 @@
 
         <h2>The Spurs do not think of themselves as a sports team</h2>
         <p>Brian is four months into the job and made this clear fast. The organization runs like an entertainment company.</p>
-        <p>San Antonio is the 25th largest city in the country. They have never been New York or LA.</p>
+        <p>San Antonio is the <b class="stat">25</b>th largest city in the country. They have never been New York or LA.</p>
         <p>That constraint forced a startup brain for decades. Scout international players before anyone else (Tony Parker, Manu Ginobili). Move into Austin before other franchises thought it made sense. Adopt AI infrastructure before most teams had a policy on it.</p>
-        <p>The most wins in the NBA since 1999. No marquee market, no coastal media machine, no built-in national fanbase.</p>
+        <p>The most wins in the NBA since <b class="stat">1999</b>. No marquee market, no coastal media machine, no built-in national fanbase.</p>
         <p>Outsmarting people is the entire model. So, so consistently.</p>
 
         <div class="pull-quote">
@@ -90,22 +96,27 @@
         <p>The Spurs went to Paris, played the games, flew home. They had real lineage in France through their international players, and they showed up for the event and left.</p>
         <p>A few years later they went back with no game scheduled. Just to activate. Watch parties, sponsor events, presence with nothing to sell.</p>
         <p>"Just because you play there doesn't mean you're there."</p>
-        <p>Same logic built the Austin office. 20 Spurs employees are based here full time. They sponsored the Austin Half Marathon. They run watch parties on a schedule.</p>
+        <p>Same logic built the Austin office. <b class="stat">20</b> Spurs employees are based here full time. They sponsored the Austin Half Marathon. They run watch parties on a schedule.</p>
         <p>"We look at Austin as just as much our home market as San Antonio."</p>
         <p>Other teams thought they were nuts to move games out of San Antonio. The Spurs see one market through a wider lens, the way DC, Maryland and Virginia are really one 6.5 million person metro wearing three jurisdictions.</p>
+
+        <figure class="fig">
+          <img src="img/panel-6-3.jpg" alt="Wellness House 2026, Panel 6." loading="lazy" />
+          <figcaption>Wellness House 2026, Panel 6.</figcaption>
+        </figure>
 
         <h2>Evan's real problem: nobody knows what the league is</h2>
         <p>Evan runs the Texas Ranchers in Major League Pickleball.</p>
         <p>I asked the room who plays pickleball. A few hands. Who knows what Major League Pickleball is? Fewer. Who knows the format well enough to watch a match and care? Fewer again.</p>
         <p>His whole community strategy is closing that three layer gap. Understand the sport, then the Ranchers, then how to actually be a fan.</p>
         <p>"Education has been a key investment area for us."</p>
-        <p>Last year's Austin tour stop pulled almost 6,000 people, and most of that room had no idea it existed before they walked in.</p>
-        <p>Almost 6,000! The market is sitting right there.</p>
+        <p>Last year's Austin tour stop pulled almost <b class="stat">6,000</b> people, and most of that room had no idea it existed before they walked in.</p>
+        <p>Almost <b class="stat">6,000</b>! The market is sitting right there.</p>
         <p>"If you give Austin fans an environment to be fans, they will be fans."</p>
 
         <h2>Start with the fourth string guy</h2>
         <p>Tyler played for the Patriots and later founded Stanford's NIL program. His read from inside a locker room is that the most influential players are rarely the most visible.</p>
-        <p>The guy with 78 Instagram followers who brings his lunchbox to work every day, models what a great teammate looks like, and is loved by everyone in the room.</p>
+        <p>The guy with <b class="stat">78</b> Instagram followers who brings his lunchbox to work every day, models what a great teammate looks like, and is loved by everyone in the room.</p>
         <p>That is who the team actually watches. Brands that only chase the starting quarterback never see him.</p>
         <p>His proof: a brand called Upside Down Dallas ended up on Dak Prescott's head because they started with the fourth string quarterback, who was beloved in that locker room. One relationship rippled through the whole team.</p>
 
@@ -123,33 +134,51 @@
         <h2>Never assume the room knows what you know</h2>
         <p>Tyler's NIL fundraising pitch assumed that three years after NIL became legal, Stanford graduates understood it.</p>
         <p>They did not. First question in nearly every meeting: "Is this illegal? Am I laundering money?"</p>
-        <p>He had burned 50 to 100 hours pitching something that required teaching NIL 101 first.</p>
+        <p>He had burned <b class="stat">50</b> to <b class="stat">100</b> hours pitching something that required teaching NIL <b class="stat">101</b> first.</p>
         <p>"We took the macro of things instead of focusing on what our exact graduate needed to hear."</p>
         <p>If your category feels obvious from the inside and opaque from the outside, you are in the education business before you are in the sales business.</p>
 
         <h2>Your fans are changing faster than your model</h2>
         <p>Evan's version of the same mistake. They had a detailed picture of the pickleball fan, then they went to market.</p>
-        <p>In three years the average age of the pickleball viewer dropped five to six years. It is under 30 now.</p>
+        <p>In three years the average age of the pickleball viewer dropped five to six years. It is under <b class="stat">30</b> now.</p>
         <p>"They call it the Benjamin Button sport."</p>
         <p>Reports and models are a starting point. You do not know who your fans are until you are in the market watching real behavior.</p>
         <p>Stay close and you catch the shift live. Lean on a two year old model and you keep optimizing for people who already left.</p>
 
+        <figure class="fig">
+          <img src="img/panel-6-2.jpg" alt="Wellness House 2026, Panel 6." loading="lazy" />
+          <figcaption>Wellness House 2026, Panel 6.</figcaption>
+        </figure>
+
         <h2>What is coming</h2>
         <p>Tyler sees immersive sphere-style venues shrinking to movie theater scale, so you can sit front row at any game from anywhere.</p>
-        <p>Evan sees 10,000 plus at a Major League Pickleball event in Austin, with pros in their teens (Annalee Waters, current world number one, is 19 and just signed with Nike).</p>
-        <p>Brian sees a brand new Spurs arena in downtown San Antonio, five years out, that he thinks permanently changes the city and turns the I-35 corridor into one of the most watched sports markets in the country.</p>
+        <p>Evan sees <b class="stat">10,000</b> plus at a Major League Pickleball event in Austin, with pros in their teens (Annalee Waters, current world number one, is <b class="stat">19</b> and just signed with Nike).</p>
+        <p>Brian sees a brand new Spurs arena in downtown San Antonio, five years out, that he thinks permanently changes the city and turns the I-<b class="stat">35</b> corridor into one of the most watched sports markets in the country.</p>
         <p>The thread across all three: the communities built before the infrastructure lands are the loyal ones when it arrives.</p>
 
         <h2>What to take home</h2>
         <ul class="takeaway-list">
           <li>The Spurs went back to Paris with no game on the calendar just to activate. Presence without a game is how you prove you are building somewhere instead of touring it.</li>
-          <li>Pickleball's average fan age dropped 5 to 6 years in three years. A channel strategy built on last year's profile is already stale. Get in the market and watch behavior.</li>
+          <li>Pickleball's average fan age dropped 5 to <b class="stat">6 years</b> in three years. A channel strategy built on last year's profile is already stale. Get in the market and watch behavior.</li>
           <li>The fourth string quarterback who is loved in the locker room moves product. Research who has influence inside the team, not just outside it. Cheapest ambassador deals live in that gap.</li>
-          <li>The Spurs have won more NBA games than anyone since 1999 and most fans outside San Antonio have no idea. Winning without the story leaves fandom on the table.</li>
+          <li>The Spurs have won more NBA games than anyone since <b class="stat">1999</b> and most fans outside San Antonio have no idea. Winning without the story leaves fandom on the table.</li>
           <li>Tyler's NIL lesson applies to any pitch. Obvious inside, opaque outside, means you teach before you sell. Build that into the timeline.</li>
         </ul>
 
     </div>
   </div>
+<script>
+  (function () {
+    var bar = document.querySelector('.read-progress i');
+    if (!bar) return;
+    function tick() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick);
+    tick();
+  })();
+</script>
 </body>
 </html>

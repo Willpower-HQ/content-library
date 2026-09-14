@@ -6,7 +6,7 @@
   <title>The Wellness Lounge: Buying Attention vs Earning It | Willpower</title>
   <link rel="stylesheet" href="https://starlit-crostata-9f186f.netlify.app/assets/subpage.css" />
   <style>
-    :root { --accent: #7baad4; --accent-light: rgba(123,170,212,0.10); }
+    :root { --accent: #72b89a; --accent-light: rgba(114,184,154,0.12); }
     body { background: var(--color-bg); }
     .article-back { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin: 32px 0 0 0; }
     .article-back:hover { opacity: .7; }
@@ -21,9 +21,14 @@
     .article-body { padding-bottom: 80px; }
     .article-body h2 { font-size: 22px; font-weight: 800; margin: 48px 0 16px; letter-spacing: -.01em; color: var(--white, #f0f0f0); }
     .article-body p { font-size: 16px; line-height: 1.75; color: var(--muted, #aaa); margin: 0 0 20px; }
-    .pull-quote { border-left: 4px solid var(--accent); padding: 16px 24px; margin: 32px 0; background: var(--accent-light); }
-    .pull-quote p { font-size: 18px; font-weight: 600; font-style: italic; color: var(--white, #eee); margin: 0 0 8px; }
-    .pull-quote cite { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .pull-quote { position: relative; border: 0; border-left: 3px solid var(--accent); padding: 8px 0 8px 34px; margin: 52px 0; background: none; }
+    .pull-quote::before { content: '\201C'; position: absolute; left: 16px; top: 26px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 96px; line-height: 0; color: var(--accent); opacity: .22; }
+    .pull-quote p { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.32; font-weight: 700; font-style: normal; letter-spacing: -.01em; color: var(--white, #f2f2f2); margin: 0 0 14px; max-width: 900px; }
+    .pull-quote cite { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .stat { color: var(--accent); font-weight: 700; }
+    .read-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,.06); z-index: 999; }
+    .read-progress i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .08s linear; }
+    .article-body > h2:first-of-type + p { font-size: 20px; line-height: 1.65; color: var(--white, #ddd); font-weight: 500; }
     .video-wrap { aspect-ratio: 16/9; background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.4); margin: 32px 0; }
     .video-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
     .speaker-list { margin: 0 0 40px; padding: 20px 24px; border: 1px solid rgba(255,255,255,.1); border-radius: 10px; }
@@ -49,6 +54,7 @@
   </style>
 </head>
 <body>
+  <div class="read-progress"><i></i></div>
   <div class="wrap">
     <a href="../index.html" class="article-back">&#8592; Back to Media</a>
 
@@ -89,15 +95,15 @@
           <div class="lens"><h4>NY Knicks</h4><b>Fandom led</b><span>53 years, no title, still sold out. That audience got inherited. The job is not breaking it.</span></div>
           <div class="lens"><h4>Ultra</h4><b>Content led</b><span>National on day one, no local scene to stand in. Content does what a run club does for Bandit.</span></div>
         </div>
-        <p>I looked at the signups before we started. Roughly 80% of the room had flagged acquisition cost as the thing keeping them up.</p>
+        <p>I looked at the signups before we started. Roughly <b class="stat">80%</b> of the room had flagged acquisition cost as the thing keeping them up.</p>
         <p>These three had solved it three ways that do not talk to each other.</p>
 
 
         <h2>Nick spent $1M on a race instead of a media buy</h2>
-        <p>Bandit started its events business on a $2,500 budget. Unsanctioned races, right outside the office.</p>
-        <p>The Bandit Grand Prix now runs about $1M top line. Second year!</p>
+        <p>Bandit started its events business on a <b class="stat">$2,500</b> budget. Unsanctioned races, right outside the office.</p>
+        <p>The Bandit Grand Prix now runs about <b class="stat">$1M</b> top line. Second year!</p>
         <p>Nick studied music festival economics to figure out how to do it without losing his shirt, then funded it the way a festival does (sponsors, tickets to racers, their own merch).</p>
-        <p>Here is the part I keep thinking about. A $1M media buy is $1M of selling. A $1M race is $1M of experience, and the people inside it do the distributing for you.</p>
+        <p>Here is the part I keep thinking about. A <b class="stat">$1M</b> media buy is <b class="stat">$1M</b> of selling. A <b class="stat">$1M</b> race is <b class="stat">$1M</b> of experience, and the people inside it do the distributing for you.</p>
         <p>Nine laps. Closed course, indoor and outdoor, DJ going.</p>
         <p>And Nick is in the venue building the thing himself so they can hire one less person until it is proven. That is the whole personality of the company right there.</p>
 
@@ -122,7 +128,7 @@
         <h2>Four years. Zero conversion rate tests</h2>
         <p>Not one CRO change to the website for the first four years of the company. Zero.</p>
         <p>Every dollar that would have gone to testing button colors went into making people care.</p>
-        <p>He is honest that this was a stage call, not a religion. At $100M in revenue the math flips (half a basis point on a million sessions is real money, on ten thousand it is noise). Bandit does the optimization work now, and he gives AI the credit for making most of it automatic.</p>
+        <p>He is honest that this was a stage call, not a religion. At <b class="stat">$100M</b> in revenue the math flips (half a basis point on a million sessions is real money, on ten thousand it is noise). Bandit does the optimization work now, and he gives AI the credit for making most of it automatic.</p>
 
         <div class="pull-quote">
           <p>"If we get people so obsessed with the brand, they're gonna figure out how to find the checkout."</p>
@@ -154,7 +160,7 @@
         <h2>What a content engine actually costs</h2>
         <p>Ankur put a real number on it, which almost nobody does in public.</p>
         <p>Low six figures a month - agencies, production, headcount, partnerships.</p>
-        <p>That buys 600 to 700 pieces of content a month, and they expect to double it inside two months.</p>
+        <p>That buys <b class="stat">600</b> to <b class="stat">700 pieces</b> of content a month, and they expect to double it inside two months.</p>
         <p>The structure is the interesting part. Influencers producing at volume, people on payroll who are good on camera, and deliberately expensive one-offs with Larry Wheels and Rampage Jackson (more than a brand their size should pay, and it breaks through anyway).</p>
         <p>All of it lands in a pre and post production operation with fixed boxes to check.</p>
         <p>Be creative about what goes in. Be an accountant about what comes out.</p>
@@ -173,7 +179,7 @@
 
         <h2>MSG gets its own players one day a year</h2>
         <p>Toby sells partnerships across the Knicks, Rangers, Rockettes and MSG's concerts. Eight years at the NFL before that.</p>
-        <p>53 years without a title, and his point was that the rabid part of that fan base never depended on winning.</p>
+        <p><b class="stat">53 years</b> without a title, and his point was that the rabid part of that fan base never depended on winning.</p>
         <p>Then he named a constraint I had never considered.</p>
         <p>Once a year.</p>
         <p>MSG gets access to its own players for content exactly once a year. One eight hour shoot day. Everything branded comes out of that.</p>
@@ -187,9 +193,9 @@
 
         <h2>Acting small on purpose</h2>
         <p>I asked Nick how Bandit stays cool while it scales. He gave me the line of the night, then the mechanic behind it.</p>
-        <p>The email list went from 5,000 to half a million. HALF A MILLION.</p>
-        <p>His answer is to ignore how much bigger that is and keep doing what worked at 140 fans, only better.</p>
-        <p>Concretely: after every single collection, 50 men and 50 women come into the Brooklyn store and tell them what they liked and what they did not. He says that never changes.</p>
+        <p>The email list went from <b class="stat">5,000</b> to half a million. HALF A MILLION.</p>
+        <p>His answer is to ignore how much bigger that is and keep doing what worked at <b class="stat">140</b> fans, only better.</p>
+        <p>Concretely: after every single collection, <b class="stat">50</b> men and <b class="stat">50</b> women come into the Brooklyn store and tell them what they liked and what they did not. He says that never changes.</p>
         <p>He also insists Bandit still has low brand awareness. Founders stop saying that right before they get comfortable, so I believe him.</p>
 
         <div class="pull-quote">
@@ -202,7 +208,7 @@
           <li>Run Nick's test on your own numbers tonight. If paid purchases are growing faster than organic ones, you are buying growth the brand has not earned.</li>
           <li>Bandit's event math only works with a near not-for-profit head on. Optimize the inputs that create real emotional engagement, and profitability shows up in later years or never.</li>
           <li>Ankur's service layer is the cheapest edge on this list. Read your CX logs, find what customers keep working around, turn it into an offer. The vacation pack came out of support tickets.</li>
-          <li>Put a real number on your content operation before you judge it. Low six figures a month buying 600 to 700 pieces is the benchmark Ankur shared out loud.</li>
+          <li>Put a real number on your content operation before you judge it. Low six figures a month buying <b class="stat">600</b> to <b class="stat">700 pieces</b> is the benchmark Ankur shared out loud.</li>
           <li>On traditional media Nick is bullish. Linear TV next month, radio maybe Q1. His rule on a small budget: the idea beats the budget. They ran a billboard that did not carry their own name.</li>
           <li>Scarcity of access is a strategy problem. MSG gets one eight hour day a year with its players and solved it by handing the storytelling to creators.</li>
           <li>Community takes years, so the decision happens now. That is the whole reason these rooms exist. Growth Through Community.</li>
@@ -210,5 +216,18 @@
 
     </div>
   </div>
+<script>
+  (function () {
+    var bar = document.querySelector('.read-progress i');
+    if (!bar) return;
+    function tick() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick);
+    tick();
+  })();
+</script>
 </body>
 </html>

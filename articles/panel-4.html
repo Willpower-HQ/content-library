@@ -21,9 +21,14 @@
     .article-body { padding-bottom: 80px; }
     .article-body h2 { font-size: 22px; font-weight: 800; margin: 48px 0 16px; letter-spacing: -.01em; color: var(--white, #f0f0f0); }
     .article-body p { font-size: 16px; line-height: 1.75; color: var(--muted, #aaa); margin: 0 0 20px; }
-    .pull-quote { border-left: 4px solid var(--accent); padding: 16px 24px; margin: 32px 0; background: var(--accent-light); }
-    .pull-quote p { font-size: 18px; font-weight: 600; font-style: italic; color: var(--white, #eee); margin: 0 0 8px; }
-    .pull-quote cite { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .pull-quote { position: relative; border: 0; border-left: 3px solid var(--accent); padding: 8px 0 8px 34px; margin: 52px 0; background: none; }
+    .pull-quote::before { content: '\201C'; position: absolute; left: 16px; top: 26px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 96px; line-height: 0; color: var(--accent); opacity: .22; }
+    .pull-quote p { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.32; font-weight: 700; font-style: normal; letter-spacing: -.01em; color: var(--white, #f2f2f2); margin: 0 0 14px; max-width: 900px; }
+    .pull-quote cite { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .stat { color: var(--accent); font-weight: 700; }
+    .read-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,.06); z-index: 999; }
+    .read-progress i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .08s linear; }
+    .article-body > h2:first-of-type + p { font-size: 20px; line-height: 1.65; color: var(--white, #ddd); font-weight: 500; }
     .video-wrap { aspect-ratio: 16/9; background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.4); margin: 32px 0; }
     .video-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
     .speaker-list { margin: 0 0 40px; padding: 20px 24px; border: 1px solid rgba(255,255,255,.1); border-radius: 10px; }
@@ -42,6 +47,7 @@
   </style>
 </head>
 <body>
+  <div class="read-progress"><i></i></div>
   <div class="wrap">
     <a href="../index.html" class="article-back">&#8592; Back to Media</a>
 
@@ -74,11 +80,11 @@
     <div class="article-body">
 
         <h2>Salar could not find his people, so he built the app for it</h2>
-        <p>Salar moved to the States 12 years ago and got told the way to make friends was bars and nightclubs.</p>
+        <p>Salar moved to the States <b class="stat">12 years</b> ago and got told the way to make friends was bars and nightclubs.</p>
         <p>That did nothing for him.</p>
         <p>Run clubs did. Soccer, rock climbing, weekend gym sessions. High fiving total strangers before you know their names.</p>
         <p>Three years ago he moved to Austin and hit the same wall. Where is this happening, and how do you find it?</p>
-        <p>Sweatpals was the answer. The platform now powers over 10,000 communities and more than a million active users, handling event management, ticketing, membership and point of sale for everything from a passion-project run club to an operation like Squatch Fitness.</p>
+        <p>Sweatpals was the answer. The platform now powers over <b class="stat">10,000</b> communities and more than a million active users, handling event management, ticketing, membership and point of sale for everything from a passion-project run club to an operation like Squatch Fitness.</p>
 
         <div class="pull-quote">
           <p>"If you don't have the community aspect, you're always on a treadmill. You always have to do paid marketing. Community is truly how you scale."</p>
@@ -89,10 +95,15 @@
         <h2>Eric's backyard: 5 to 10 people, six nights a week, since September</h2>
         <p>Eric Hinman runs contrast therapy at his house in Austin. Sauna and cold water.</p>
         <p>Since he moved in September he has averaged five to ten people a night, six nights a week.</p>
-        <p>That is roughly 1,200 people hosted in five months. Hosted, in his home, using the products he has on hand, doing the work together.</p>
+        <p>That is roughly <b class="stat">1,200</b> people hosted in five months. Hosted, in his home, using the products he has on hand, doing the work together.</p>
         <p>He caps groups at six to ten on purpose. "In a hot sauna, you get vulnerable really quick."</p>
-        <p>Your phone overheats, the defenses drop, and you are a person in a hot box with five others who chose to be there. Go past ten and the depth you can reach in 60 minutes falls off a cliff.</p>
+        <p>Your phone overheats, the defenses drop, and you are a person in a hot box with five others who chose to be there. Go past ten and the depth you can reach in <b class="stat">60</b> minutes falls off a cliff.</p>
         <p>He also curates hard. Founders-only sessions for entrepreneurs, creators and investors, so the room adds value to itself.</p>
+
+        <figure class="fig">
+          <img src="img/panel-4-3.jpg" alt="Wellness House 2026, Panel 4." loading="lazy" />
+          <figcaption>Wellness House 2026, Panel 4.</figcaption>
+        </figure>
 
         <h2>Shared identity plus ritual. You need both</h2>
         <p>Salar pointed at Art of Community. A community is people gathered around a shared identity and shared experiences.</p>
@@ -101,7 +112,7 @@
         <p>Religion works because people go on Sundays. The ritual is the calling card.</p>
         <p>On his platform, Squatch Fitness runs a community workout the last Saturday of every month. That one consistent touchpoint is what manufactures belonging.</p>
         <p>Show up once and you did a workout. Show up every month and you know people, they know you, you are in.</p>
-        <p>The events that actually build something combine a wellness piece with a curated social moment right after. Run and raves. Coffee and chill. An 80s themed volleyball night. A Taylor Swift lift club in Arizona (yes, really!).</p>
+        <p>The events that actually build something combine a wellness piece with a curated social moment right after. Run and raves. Coffee and chill. An <b class="stat">80</b>s themed volleyball night. A Taylor Swift lift club in Arizona (yes, really!).</p>
         <p>The workout gets them in the room. The social part is why they come back.</p>
 
 
@@ -111,9 +122,9 @@
         </figure>
 
         <h2>Vivobarefoot: 16 festivals, zero shoes sold</h2>
-        <p>Nick joined Vivobarefoot nine years ago, back when the team celebrated spotting someone wearing the shoes in public. The company grew 30% or better year on year for its first five years.</p>
+        <p>Nick joined Vivobarefoot nine years ago, back when the team celebrated spotting someone wearing the shoes in public. The company grew <b class="stat">30%</b> or better year on year for its first five years.</p>
         <p>Then customers started organizing themselves without Vivo doing anything.</p>
-        <p>So they built a handmade wooden trailer and took it to 16 festivals across the UK, and decided up front they would not sell a single pair at any of them.</p>
+        <p>So they built a handmade wooden trailer and took it to <b class="stat">16</b> festivals across the UK, and decided up front they would not sell a single pair at any of them.</p>
         <p>They were selling the experience of what Vivo is. Ambassadors ran talks, workshops, sound baths.</p>
         <p>Website traffic climbed all summer, a build across the whole season rather than one spike, and the ROI was genuinely hard to put in a slide at the time.</p>
         <p>It worked because they committed and refused to compromise the thing halfway through.</p>
@@ -125,20 +136,38 @@
 
         <h2>What brands keep getting wrong</h2>
         <p>Eric's answer: a fancy dinner buys you one nice evening and no content.</p>
-        <p>An ambassador summit with trail runs, climbing, CrossFit and cold stream plunges buys you content from every angle, live product feedback, and ambassadors who feel part of the thing. 10,000 did exactly that in Denver, 15 to 20 ambassadors over two to three days, and walked out with months of content and a team that understood the products better than any briefing.</p>
+        <p>An ambassador summit with trail runs, climbing, CrossFit and cold stream plunges buys you content from every angle, live product feedback, and ambassadors who feel part of the thing. <b class="stat">10,000</b> did exactly that in Denver, <b class="stat">15</b> to <b class="stat">20 ambassadors</b> over two to three days, and walked out with months of content and a team that understood the products better than any briefing.</p>
         <p>Salar's answer: trying to sell the second someone walks in. "Instead of welcoming them and facilitating the connection, you're immediately trying to transact. That should always come last."</p>
-        <p>Nick's answer: you can run 100 events and move nothing if you tried to reach everybody at once. Pick your groups. Stay consistent with them. Get comfortable saying out loud what you are not doing yet.</p>
+        <p>Nick's answer: you can run <b class="stat">100</b> events and move nothing if you tried to reach everybody at once. Pick your groups. Stay consistent with them. Get comfortable saying out loud what you are not doing yet.</p>
+
+        <figure class="fig">
+          <img src="img/panel-4-2.jpg" alt="Wellness House 2026, Panel 4." loading="lazy" />
+          <figcaption>Wellness House 2026, Panel 4.</figcaption>
+        </figure>
 
         <h2>What to take home</h2>
         <ul class="takeaway-list">
-          <li>Eric hosts 5 to 10 people six nights a week and calls it compounding consistency. 1,200 people in five months is the output. "It's not being superhuman any one day."</li>
+          <li>Eric hosts 5 to <b class="stat">10 people</b> six nights a week and calls it compounding consistency. <b class="stat">1,200</b> people in five months is the output. "It's not being superhuman any one day."</li>
           <li>Sweatpals sees the strongest growth in events that fuse a workout with a social moment. The workout gets them in, the social part brings them back.</li>
-          <li>Vivobarefoot's 16 festival summer with nothing for sale was their biggest marketing spend at the time. Direct sale ROI was zero. Brand equity and season-long traffic paid it back.</li>
+          <li>Vivobarefoot's <b class="stat">16</b> festival summer with nothing for sale was their biggest marketing spend at the time. Direct sale ROI was zero. Brand equity and season-long traffic paid it back.</li>
           <li>Nick on entering a new city: partner with the community that already exists there. "If you're Klaviyo or Shopify and you want to get to Austin, you've got Willpower."</li>
           <li>Shared identity plus ritual equals community. The ritual is the part everybody skips, and it is the part that makes people belong. Growth Through Community.</li>
         </ul>
 
     </div>
   </div>
+<script>
+  (function () {
+    var bar = document.querySelector('.read-progress i');
+    if (!bar) return;
+    function tick() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick);
+    tick();
+  })();
+</script>
 </body>
 </html>

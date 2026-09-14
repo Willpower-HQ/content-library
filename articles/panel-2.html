@@ -21,9 +21,14 @@
     .article-body { padding-bottom: 80px; }
     .article-body h2 { font-size: 22px; font-weight: 800; margin: 48px 0 16px; letter-spacing: -.01em; color: var(--white, #f0f0f0); }
     .article-body p { font-size: 16px; line-height: 1.75; color: var(--muted, #aaa); margin: 0 0 20px; }
-    .pull-quote { border-left: 4px solid var(--accent); padding: 16px 24px; margin: 32px 0; background: var(--accent-light); }
-    .pull-quote p { font-size: 18px; font-weight: 600; font-style: italic; color: var(--white, #eee); margin: 0 0 8px; }
-    .pull-quote cite { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .pull-quote { position: relative; border: 0; border-left: 3px solid var(--accent); padding: 8px 0 8px 34px; margin: 52px 0; background: none; }
+    .pull-quote::before { content: '\201C'; position: absolute; left: 16px; top: 26px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 96px; line-height: 0; color: var(--accent); opacity: .22; }
+    .pull-quote p { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.32; font-weight: 700; font-style: normal; letter-spacing: -.01em; color: var(--white, #f2f2f2); margin: 0 0 14px; max-width: 900px; }
+    .pull-quote cite { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .stat { color: var(--accent); font-weight: 700; }
+    .read-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,.06); z-index: 999; }
+    .read-progress i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .08s linear; }
+    .article-body > h2:first-of-type + p { font-size: 20px; line-height: 1.65; color: var(--white, #ddd); font-weight: 500; }
     .video-wrap { aspect-ratio: 16/9; background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.4); margin: 32px 0; }
     .video-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
     .speaker-list { margin: 0 0 40px; padding: 20px 24px; border: 1px solid rgba(255,255,255,.1); border-radius: 10px; }
@@ -42,6 +47,7 @@
   </style>
 </head>
 <body>
+  <div class="read-progress"><i></i></div>
   <div class="wrap">
     <a href="../index.html" class="article-back">&#8592; Back to Media</a>
 
@@ -95,6 +101,11 @@
           <cite>John Sullivan, Chief Marketing Officer, WHOOP</cite>
         </div>
 
+        <figure class="fig">
+          <img src="img/panel-2-3.jpg" alt="Wellness House 2026, Panel 2." loading="lazy" />
+          <figcaption>Wellness House 2026, Panel 2.</figcaption>
+        </figure>
+
         <h2>The HealthSpan screenshot broke their record in a week</h2>
         <p>Whoop shipped a HealthSpan metric. Inside one week it became the most shared screenshot in the history of the app.</p>
         <p>Members had been using recovery and strain to optimize today. HealthSpan showed them the cumulative bill. Years of healthy life you are adding or subtracting, instead of how recovered you are on a Tuesday.</p>
@@ -112,8 +123,8 @@
         <p>Ingrid Milman Cordy and her co-founder were running a biohacking spa in New York. They wanted infrared sauna and could not afford the buildout.</p>
         <p>A vendor showed up with a portable sauna blanket. They said yes, expecting a small side product.</p>
         <p>It became the entire business!</p>
-        <p>The blanket took the sauna out of the facility and put it in people's homes. Suddenly it worked for anyone who did not live near a location, could not spend $50 a session, and wanted it on their own schedule.</p>
-        <p>They are on the fourth generation now, and a 30% repeat purchase rate tells you the community around it is real.</p>
+        <p>The blanket took the sauna out of the facility and put it in people's homes. Suddenly it worked for anyone who did not live near a location, could not spend <b class="stat">$50</b> a session, and wanted it on their own schedule.</p>
+        <p>They are on the fourth generation now, and a <b class="stat">30%</b> repeat purchase rate tells you the community around it is real.</p>
 
         <div class="pull-quote">
           <p>"The data is a weather forecast, not a report card. Use it to plan, not to grade yourself."</p>
@@ -133,6 +144,11 @@
         <p>"We're being very intentional about not alienating the audience that got us here while also growing."</p>
         <p>John's version: Whoop's community is global and evangelical, and the evangelism has to sit on real behavior change. One member who actually changes their training and sleep is worth ten wearing it as a status signal. Retention is the receipt.</p>
 
+        <figure class="fig">
+          <img src="img/panel-2-2.jpg" alt="Wellness House 2026, Panel 2." loading="lazy" />
+          <figcaption>Wellness House 2026, Panel 2.</figcaption>
+        </figure>
+
         <h2>What to take home</h2>
         <ul class="takeaway-list">
           <li>The bomb squad study is the data use case to copy. High stakes, specific feedback, real behavior change. If your data can do that for a customer you have a business. If it is decorative you have a gadget.</li>
@@ -144,5 +160,18 @@
 
     </div>
   </div>
+<script>
+  (function () {
+    var bar = document.querySelector('.read-progress i');
+    if (!bar) return;
+    function tick() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick);
+    tick();
+  })();
+</script>
 </body>
 </html>

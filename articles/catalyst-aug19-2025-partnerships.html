@@ -6,7 +6,7 @@
   <title>Catalyst Series: Partnerships for Growth | Willpower</title>
   <link rel="stylesheet" href="https://starlit-crostata-9f186f.netlify.app/assets/subpage.css" />
   <style>
-    :root { --accent: #7baad4; --accent-light: rgba(123,170,212,0.10); }
+    :root { --accent: #d4956a; --accent-light: rgba(212,149,106,0.12); }
     body { background: var(--color-bg); }
     .article-back { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin: 32px 0 0 0; }
     .article-back:hover { opacity: .7; }
@@ -21,9 +21,14 @@
     .article-body { padding-bottom: 80px; }
     .article-body h2 { font-size: 22px; font-weight: 800; margin: 48px 0 16px; letter-spacing: -.01em; color: var(--white, #f0f0f0); }
     .article-body p { font-size: 16px; line-height: 1.75; color: var(--muted, #aaa); margin: 0 0 20px; }
-    .pull-quote { border-left: 4px solid var(--accent); padding: 16px 24px; margin: 32px 0; background: var(--accent-light); }
-    .pull-quote p { font-size: 18px; font-weight: 600; font-style: italic; color: var(--white, #eee); margin: 0 0 8px; }
-    .pull-quote cite { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .pull-quote { position: relative; border: 0; border-left: 3px solid var(--accent); padding: 8px 0 8px 34px; margin: 52px 0; background: none; }
+    .pull-quote::before { content: '\201C'; position: absolute; left: 16px; top: 26px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 96px; line-height: 0; color: var(--accent); opacity: .22; }
+    .pull-quote p { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.32; font-weight: 700; font-style: normal; letter-spacing: -.01em; color: var(--white, #f2f2f2); margin: 0 0 14px; max-width: 900px; }
+    .pull-quote cite { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .stat { color: var(--accent); font-weight: 700; }
+    .read-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,.06); z-index: 999; }
+    .read-progress i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .08s linear; }
+    .article-body > h2:first-of-type + p { font-size: 20px; line-height: 1.65; color: var(--white, #ddd); font-weight: 500; }
     .video-wrap { aspect-ratio: 16/9; background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.4); margin: 32px 0; }
     .video-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
     .speaker-list { margin: 0 0 40px; padding: 20px 24px; border: 1px solid rgba(255,255,255,.1); border-radius: 10px; }
@@ -80,6 +85,7 @@
   </style>
 </head>
 <body>
+  <div class="read-progress"><i></i></div>
   <div class="wrap">
     <a href="../index.html" class="article-back">&#8592; Back to Media</a>
 
@@ -125,12 +131,12 @@
         <h2>They set out 50 parking spots. 320 Land Cruisers came</h2>
         <p>Howler did a collab with Toyota Land Cruiser. Not Toyota. Land Cruiser, specifically.</p>
         <p>It took about four years. Halfway through the conversation Toyota discontinued the thing, so Rick figured it was dead. Two years later they brought it back and everyone scrambled.</p>
-        <p>They threw the launch at Central Machine Works in East Austin and set aside a lot up front for vintage cars. About 50 spots. Rick figured maybe 70 would turn up.</p>
-        <p>320 came! People parking blocks away.</p>
+        <p>They threw the launch at Central Machine Works in East Austin and set aside a lot up front for vintage cars. About <b class="stat">50 spots</b>. Rick figured maybe <b class="stat">70</b> would turn up.</p>
+        <p><b class="stat">320</b> came! People parking blocks away.</p>
         <p>And here is the part he was careful about. That crowd was never his.</p>
 
 
-        <p>The Land Cruiser has been around since the late 40s. Seventy-odd years of die-hards already existed before Howler showed up.</p>
+        <p>The Land Cruiser has been around since the late <b class="stat">40</b>s. Seventy-odd years of die-hards already existed before Howler showed up.</p>
         <p>"It's not about us. It's that here was this existing cult, and we got the privilege of tapping into it."</p>
         <p>Instant accreditation. Then you leave. He said it plainly: "we get to be in this world for a hot second. And now we're out."</p>
 
@@ -142,10 +148,10 @@
         <p>You do not need a shared audience. You need a third thing that could only exist because both of you showed up.</p>
 
         <h2>Two years of 8:30 breakfasts for one jersey</h2>
-        <p>Megan runs brand and merchandise at Austin FC, and the jersey is 80% of the business. Every kit runs on a two year cycle, so in 2025 she is living in 2027.</p>
+        <p>Megan runs brand and merchandise at Austin FC, and the jersey is <b class="stat">80%</b> of the business. Every kit runs on a two year cycle, so in <b class="stat">2025</b> she is living in <b class="stat">2027</b>.</p>
         <p>The Armadillo Kit came out of Armadillo World Headquarters, an Austin venue that no longer exists. It is where "Keep Austin Weird" was born.</p>
         <p>They worked with them for two years before the jersey shipped.</p>
-        <p>Breakfast at 8:30 with the founder, who is in his 80s, his wife, and another woman who worked at the venue. For two years. Just learning why the culture here is the way it is.</p>
+        <p>Breakfast at 8:<b class="stat">30</b> with the founder, who is in his <b class="stat">80</b>s, his wife, and another woman who worked at the venue. For two years. Just learning why the culture here is the way it is.</p>
         <p>Most brands would have licensed the logo and moved on.</p>
         <p>Two years.</p>
         <p>Austin FC now has a live armadillo at matches. He is fine, before you ask.</p>
@@ -156,6 +162,11 @@
         <p>They went the other way. "We don't want you to come into our doors because we're your only option. We want you to feel seen."</p>
         <p>Which is why the partner list is mostly local. Yeti. No Comply, the skate shop, twice. Howler for four seasons, which they called a Joint Adventure (Rick broke his thumb on one).</p>
         <p>When they brought Adidas Skateboarding in as the authenticator, Megan was nervous a big brand would flatten the local feel. Adidas told them to do what they do best and keep it local.</p>
+
+        <figure class="fig">
+          <img src="img/aug19-2025-partnerships-3.jpg" alt="Catalyst Series, Soho House Austin." loading="lazy" />
+          <figcaption>Catalyst Series, Soho House Austin.</figcaption>
+        </figure>
 
         <h2>Namita took the check and the riders hated it</h2>
         <p>Best answer of the night came when someone in the room asked for a partnership that made everybody go "why."</p>
@@ -176,7 +187,7 @@
         <p>SoulCycle is a legacy brand. It can hand a newer brand its legacy community. In exchange it gets the fresher, hotter brand walking into its studios and some relevance back.</p>
         <p>That is the whole trade, said out loud.</p>
         <p>She came up through Nasty Gal, then Pinterest, now SoulCycle, and she ran her own fashion brand for a while before sunsetting it, which is why she keeps making room for small brands who cannot afford to sponsor anything.</p>
-        <p>Her biggest one was at Pinterest. Youth mental health with Surgeon General Vivek Murthy, MTV, the White House, Rare Beauty and Selena Gomez, with an event at the White House. A 15 year old there had built a mural out of what her depression felt like.</p>
+        <p>Her biggest one was at Pinterest. Youth mental health with Surgeon General Vivek Murthy, MTV, the White House, Rare Beauty and Selena Gomez, with an event at the White House. A <b class="stat">15</b> year old there had built a mural out of what her depression felt like.</p>
         <p>That campaign is why Pinterest gets called the positive platform now.</p>
 
 
@@ -194,7 +205,7 @@
         <p>Donn's Depot is a dive four blocks from the Howler office. They have their holiday parties there.</p>
         <p>So they did a collab with it. Rick is clear that there is "zero reason on the spreadsheet why that makes sense." Bring it to a normal company and you get fired before it gets approved.</p>
         <p>Then it gets better.</p>
-        <p>Howler let Donn's sell all the inventory four days before Howler launched it, and gave them 30 day terms. Howler essentially financed the whole thing for a bar.</p>
+        <p>Howler let Donn's sell all the inventory four days before Howler launched it, and gave them <b class="stat">30</b> day terms. Howler essentially financed the whole thing for a bar.</p>
 
         <div class="pull-quote">
           <p>"Let's tell more of a love story than a brain story."</p>
@@ -226,6 +237,11 @@
         <p>Then bring what you actually have. If a global brand is weak on local credibility, that is your opening, and it will never show up on their spreadsheet.</p>
         <p>Megan's version: fill a category nobody is serving, or serve it completely differently, and tell her why. What she wants is access to a customer she cannot reach, and she is offering the same back.</p>
 
+        <figure class="fig">
+          <img src="img/aug19-2025-partnerships-2.jpg" alt="Catalyst Series, Soho House Austin." loading="lazy" />
+          <figcaption>Catalyst Series, Soho House Austin.</figcaption>
+        </figure>
+
         <h2>Then the room pitched</h2>
         <p>We closed by making everybody build a partnership on the spot. Three teams pitched, judged on uniqueness and feasibility.</p>
         <p>Spice Up Your Damn Life won. A dating show crossed with LSKD, Momofuku, Love Volleyball, Compass and AG1, where athletes take a bite of chili crunch before giving their hot take.</p>
@@ -236,8 +252,8 @@
         <ul class="takeaway-list">
           <li>Write down who you are NOT before you take a single meeting. Rick thinks that half is more important, and it is the half nobody does.</li>
           <li>Stop hunting for audience overlap. Make a child. Build the third thing that only exists because both brands showed up.</li>
-          <li>Borrowed cults beat built ones for speed. Land Cruiser had 70 years of die-hards. Howler got instant validation, then left.</li>
-          <li>Two years of breakfasts produced a jersey that carries 80% of the business. Depth of research is a moat when everyone else is licensing a logo.</li>
+          <li>Borrowed cults beat built ones for speed. Land Cruiser had <b class="stat">70 years</b> of die-hards. Howler got instant validation, then left.</li>
+          <li>Two years of breakfasts produced a jersey that carries <b class="stat">80%</b> of the business. Depth of research is a moat when everyone else is licensing a logo.</li>
           <li>Namita's scorecard names the trade out loud: legacy community for fresh relevance. If you cannot say what each side gets, it is a sponsorship, and say so.</li>
           <li>The Alien ride is a free lesson. A check plus a cool-sounding tie-in with no education on why equals confused customers.</li>
           <li>Do the Donn's Depot deal sometimes. Some partnerships pay in the thing you cannot metric, and the spreadsheet will always vote no.</li>
@@ -255,11 +271,24 @@
         </div>
 
         <div class="article-cta">
-          <p>Willpower runs these rooms for consumer brand leaders going from $10M to $1B. Invite only, and the next one fills fast.</p>
+          <p>Willpower runs these rooms for consumer brand leaders going from <b class="stat">$10M</b> to <b class="stat">$1B</b>. Invite only, and the next one fills fast.</p>
           <a href="/apply">Request an invite</a>
         </div>
 
     </div>
   </div>
+<script>
+  (function () {
+    var bar = document.querySelector('.read-progress i');
+    if (!bar) return;
+    function tick() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick);
+    tick();
+  })();
+</script>
 </body>
 </html>

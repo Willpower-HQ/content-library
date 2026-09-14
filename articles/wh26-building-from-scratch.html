@@ -6,7 +6,7 @@
   <title>Building From Scratch | Willpower</title>
   <link rel="stylesheet" href="https://starlit-crostata-9f186f.netlify.app/assets/subpage.css" />
   <style>
-    :root { --accent: #7baad4; --accent-light: rgba(123,170,212,0.10); }
+    :root { --accent: #72b89a; --accent-light: rgba(114,184,154,0.12); }
     body { background: var(--color-bg); }
     .article-back { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin: 32px 0 0 0; }
     .article-back:hover { opacity: .7; }
@@ -22,9 +22,14 @@
     @media (max-width: 860px) { .article-layout { grid-template-columns: 1fr; } .article-sticky { position: static !important; } }
     .article-body h2 { font-size: 22px; font-weight: 800; margin: 48px 0 16px; letter-spacing: -.01em; color: var(--white, #f0f0f0); }
     .article-body p { font-size: 16px; line-height: 1.75; color: var(--muted, #aaa); margin: 0 0 20px; }
-    .pull-quote { border-left: 4px solid var(--accent); padding: 16px 24px; margin: 32px 0; background: var(--accent-light); }
-    .pull-quote p { font-size: 18px; font-weight: 600; font-style: italic; color: var(--white, #eee); margin: 0 0 8px; }
-    .pull-quote cite { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .pull-quote { position: relative; border: 0; border-left: 3px solid var(--accent); padding: 8px 0 8px 34px; margin: 52px 0; background: none; }
+    .pull-quote::before { content: '\201C'; position: absolute; left: 16px; top: 26px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 96px; line-height: 0; color: var(--accent); opacity: .22; }
+    .pull-quote p { font-size: clamp(22px, 2.6vw, 30px); line-height: 1.32; font-weight: 700; font-style: normal; letter-spacing: -.01em; color: var(--white, #f2f2f2); margin: 0 0 14px; max-width: 900px; }
+    .pull-quote cite { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-style: normal; }
+    .stat { color: var(--accent); font-weight: 700; }
+    .read-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,.06); z-index: 999; }
+    .read-progress i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .08s linear; }
+    .article-body > h2:first-of-type + p { font-size: 20px; line-height: 1.65; color: var(--white, #ddd); font-weight: 500; }
     .article-sticky { position: sticky; top: 24px; }
     .video-wrap { aspect-ratio: 16/9; background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,.4); margin-bottom: 40px; }
     .video-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
@@ -44,6 +49,7 @@
   </style>
 </head>
 <body>
+  <div class="read-progress"><i></i></div>
   <div class="wrap">
     <a href="../index.html" class="article-back">&#8592; Back to Media</a>
 
@@ -78,8 +84,8 @@
     <div class="article-body">
 
         <h2>The first system she built was distribution</h2>
-        <p>Becca McCarthy has done zero to one twelve times. She has taken $5,000 checks and she has IPO'd companies. She has had the wire hit and she has laid off 200 people in 24 hours.</p>
-        <p>Eight months into Evolv, the world's first oral GLP-1 receptor agonist, she is on track for nearly $100M in year one, growing 40% month over month.</p>
+        <p>Becca McCarthy has done zero to one twelve times. She has taken <b class="stat">$5,000</b> checks and she has IPO'd companies. She has had the wire hit and she has laid off <b class="stat">200 people</b> in <b class="stat">24</b> hours.</p>
+        <p>Eight months into Evolv, the world's first oral GLP-1 receptor agonist, she is on track for nearly <b class="stat">$100M</b> in year one, growing <b class="stat">40%</b> month over month.</p>
         <p>And the first thing she built was distribution.</p>
         <p>"Know your distribution before anything else. Know the plan. Is it retail? DTC? How are you getting in front of that customer?"</p>
         <p>She had the distribution strategy locked before the product finished being made. She has also done it the other way, built the thing and waited for people to be as obsessed as she was.</p>
@@ -100,10 +106,15 @@
           <cite>Leala Francis, AG1</cite>
         </div>
 
+        <figure class="fig">
+          <img src="img/wh26-building-from-scratch-3.jpg" alt="The Wellness Lounge, May 20th." loading="lazy" />
+          <figcaption>The Wellness Lounge, May 20th.</figcaption>
+        </figure>
+
         <h2>David built TikTok Shop himself, on a weekend</h2>
-        <p>David Baker joined Beekman 1802 as Chief Revenue Officer after a private equity acquisition. First six to nine months, no sleep, everything at once. Rebuilding the site, the tech stack, the SMS infrastructure, the CX team.</p>
-        <p>Then Amazon. He pulled it in-house and took it from a reseller operation doing roughly $100K a year to Beekman's number two channel. Two and a half years.</p>
-        <p>Then TikTok Shop showed up in 2023.</p>
+        <p>David Baker joined Beekman <b class="stat">1802</b> as Chief Revenue Officer after a private equity acquisition. First six to nine months, no sleep, everything at once. Rebuilding the site, the tech stack, the SMS infrastructure, the CX team.</p>
+        <p>Then Amazon. He pulled it in-house and took it from a reseller operation doing roughly <b class="stat">$100K</b> a year to Beekman's number two channel. Two and a half years.</p>
+        <p>Then TikTok Shop showed up in <b class="stat">2023</b>.</p>
         <p>He did not forward the email to his team. He spent a weekend building the pages himself, going through passport verification, learning it from the inside.</p>
         <p>Now when his team gets stuck on TikTok Shop, they come to him. "That's training money can't buy."</p>
         <p>Player and coach at the same time. If you have never been in the weeds on something you cannot manage it, hire for it, or buy it intelligently.</p>
@@ -131,8 +142,8 @@
         <h2>5,000 advent calendars, 100 complaints, 800 silent</h2>
         <p>Beekman sent an advent calendar to their most loyal customers, early access at a special price. Sales slowed, so they added a free ornament to push the campaign.</p>
         <p>Nobody thought about the people who had already bought.</p>
-        <p>About 100 customers reached out. David's estimate is another 800 who would say nothing to Beekman and plenty to everyone else.</p>
-        <p>So they sent the ornament to all 5,000.</p>
+        <p>About <b class="stat">100</b> customers reached out. David's estimate is another <b class="stat">800</b> who would say nothing to Beekman and plenty to everyone else.</p>
+        <p>So they sent the ornament to all <b class="stat">5,000</b>.</p>
         <p>Then they sent a bouquet of their floral scent as a forgiveness gift, which put product in the hands of people who had never tried it while running down excess inventory at the same time. Clever.</p>
         <p>"Do better than best" is a principle they actually run on. Something goes wrong, you do more than fix it.</p>
         <p>The word they use is neighbors. "We believe we built this brand neighbor by neighbor by neighbor."</p>
@@ -144,16 +155,21 @@
         <p>"I now know what to look for when I'm looking for really good pasta because I've made it from scratch."</p>
         <p>That is the only reason he can evaluate vendors and AI tools without getting conned. There are bad actors everywhere and the only armor is knowing the thing.</p>
         <p>"If you haven't taken the time to roll up your sleeves and get started, you're easy to con."</p>
-        <p>Becca's 90 day answer is simpler. Build for profitability, because cash is freedom. Negotiate every supply chain term to 100% on delivery, net 45.</p>
+        <p>Becca's <b class="stat">90</b> day answer is simpler. Build for profitability, because cash is freedom. Negotiate every supply chain term to <b class="stat">100%</b> on delivery, net 45.</p>
         <p>"No investor is ever going to tell you that's a good idea because they want you to be dependent on them. But profitability is freedom."</p>
 
         <h2>You cannot use advice from before the AI era</h2>
         <p>Sharpest line of the night, and it stung the room a little.</p>
         <p>"No one who's been a founder before knows anything about being a founder today."</p>
-        <p>The playbooks do not transfer. Advice from people who built in 2015, 2018, 2021 does not apply to what you are building right now.</p>
+        <p>The playbooks do not transfer. Advice from people who built in <b class="stat">2015</b>, <b class="stat">2018</b>, <b class="stat">2021</b> does not apply to what you are building right now.</p>
         <p>What you need is a tight group of founders building in these exact conditions who you can text and call. People living the same weather.</p>
         <p>"That's it. Don't listen to anybody else. Not even us."</p>
         <p>David's version: companies starting clean right now, pouring every spec of context into an AI-agentic platform, get a revolutionary advantage over companies that started seven months ago, never mind seven years. Everyone else spends years paying down process debt.</p>
+
+        <figure class="fig">
+          <img src="img/wh26-building-from-scratch-2.jpg" alt="The Wellness Lounge, May 20th." loading="lazy" />
+          <figcaption>The Wellness Lounge, May 20th.</figcaption>
+        </figure>
 
         <h2>What is your craft?</h2>
         <p>Leala asks one question in every interview. What is your craft?</p>
@@ -169,12 +185,25 @@
           <li>Becca locked distribution before the product was finished. Know exactly how and where your customer will transact with you (two clicks, three clicks, which channel) before you have anything to sell.</li>
           <li>Leala inherited a one-segment model at AG1 and rebuilt it until anyone on the team could buy the customer a birthday present and get it right. Without that, you do not have a CX plan.</li>
           <li>David built TikTok Shop himself on a weekend so his team never had to learn it without him. The executive who forwards the email loses.</li>
-          <li>Beekman sent the ornament to all 5,000, not only the 100 who complained. The 800 who stay quiet and leave are the ones who cost you.</li>
+          <li>Beekman sent the ornament to all <b class="stat">5,000</b>, not only the <b class="stat">100</b> who complained. The <b class="stat">800</b> who stay quiet and leave are the ones who cost you.</li>
           <li>Becca on advice: nobody who built before the AI era knows how to build in it. Find founders building right now, in these conditions. That room is the whole point. Growth Through Community.</li>
         </ul>
 
       </div>
     </div>
   </div>
+<script>
+  (function () {
+    var bar = document.querySelector('.read-progress i');
+    if (!bar) return;
+    function tick() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + '%';
+    }
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick);
+    tick();
+  })();
+</script>
 </body>
 </html>
