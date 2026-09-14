@@ -38,6 +38,44 @@
     figure.fig { margin: 40px 0; }
     figure.fig img { width: 100%; display: block; border-radius: 12px; box-shadow: 0 14px 44px rgba(0,0,0,.55); }
     figure.fig figcaption { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted, #777); margin-top: 12px; }
+
+    /* ── Factfile (Shopify case-study pattern) ── */
+    .factfile {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1px; background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.07); border-radius: 10px; overflow: hidden;
+      margin: 0 0 40px;
+    }
+    .ff { background: var(--card, #13141a); padding: 18px 20px; }
+    .ff dt {
+      font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted, #777); margin: 0 0 7px;
+    }
+    .ff dd { margin: 0; font-size: 14px; line-height: 1.45; color: var(--white, #e8e8e8); font-weight: 600; }
+
+    /* ── Results band ── */
+    .results-band { border-top: 1px solid rgba(255,255,255,.1); margin-top: 8px; padding-top: 40px; }
+    .results-band > h3 {
+      font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted, #888); margin: 0 0 22px;
+    }
+    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 28px; }
+    .result-num { font-size: 46px; font-weight: 800; line-height: 1; color: var(--accent); margin-bottom: 10px; }
+    .result-label { font-size: 14px; line-height: 1.5; color: var(--muted, #999); }
+
+    /* ── Closing CTA ── */
+    .article-cta {
+      margin: 56px 0 0; padding: 32px; border-radius: 12px;
+      background: var(--accent-light); border: 1px solid rgba(255,255,255,.08);
+      display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    }
+    .article-cta p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--white, #e8e8e8); max-width: 620px; }
+    .article-cta a {
+      flex-shrink: 0; display: inline-block; background: var(--accent); color: #0b0b10;
+      font-size: 13px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+      padding: 13px 26px; border-radius: 999px; text-decoration: none;
+    }
+    .article-cta a:hover { opacity: .88; }
     .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
   </style>
 </head>
@@ -71,6 +109,16 @@
       <div class="speaker-item"><strong>Namita Gupta</strong>Director of Strategic Partnerships, SoulCycle</div>
       <div class="speaker-item"><strong>Megan Lindon</strong>Senior Director, Brand and Merchandise, Austin FC</div>
     </div>
+
+
+    <dl class="factfile">
+      <div class="ff"><dt>Series</dt><dd>Catalyst Series</dd></div>
+      <div class="ff"><dt>Venue</dt><dd>Soho House Austin</dd></div>
+      <div class="ff"><dt>Date</dt><dd>Aug 19, 2025</dd></div>
+      <div class="ff"><dt>Format</dt><dd>Panel, audience Q&amp;A, live pitch competition</dd></div>
+      <div class="ff"><dt>Runtime</dt><dd>1 hr 13 min</dd></div>
+      <div class="ff"><dt>In the room</dt><dd>Howler Brothers, SoulCycle, Austin FC, JP Morgan</dd></div>
+    </dl>
 
     <div class="article-body">
 
@@ -193,6 +241,21 @@
           <li>Do the Donn's Depot deal sometimes. Some partnerships pay in the thing you cannot metric, and the spreadsheet will always vote no.</li>
           <li>Data looks backwards. Your best customer might read as churn. Growth Through Community.</li>
         </ul>
+
+        <div class="results-band">
+          <h3>The numbers from the room</h3>
+          <div class="results-grid">
+            <div><div class="result-num">320</div><div class="result-label">Land Cruisers turned up to a party planned for 40</div></div>
+            <div><div class="result-num">80%</div><div class="result-label">Of Austin FC's business is the jersey, planned two years out</div></div>
+            <div><div class="result-num">4 yrs</div><div class="result-label">To land the Land Cruiser collab, through a discontinuation</div></div>
+            <div><div class="result-num">5 min</div><div class="result-label">For the Reigning Champ Timbers pop-up to sell out</div></div>
+          </div>
+        </div>
+
+        <div class="article-cta">
+          <p>Willpower runs these rooms for consumer brand leaders going from $10M to $1B. Invite only, and the next one fills fast.</p>
+          <a href="/apply">Request an invite</a>
+        </div>
 
     </div>
   </div>
